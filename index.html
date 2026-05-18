@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ExcelinDigital — AI-led Digital Transformation</title>
+  <meta name="description" content="A consulting practice that delivers strategy-grade answers and walks out with the client team owning the execution. AI-led digital transformation for mid-market CEOs, CDOs, and Product leaders." />
+  <link rel="stylesheet" href="assets/tokens.css" />
+  <style>
+    /* nav strip */
+    .site-nav {
+      max-width: 1240px; margin: 0 auto;
+      padding: 22px 32px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .site-nav .brand { display:flex; align-items:center; gap: 14px; font-family: var(--eid-serif); font-size: 24px; letter-spacing: -0.02em; color: var(--eid-ink-800); text-decoration: none; }
+    .site-nav .brand .dot { color: var(--eid-amber-600); }
+    .site-nav .brand .italic { font-style: italic; }
+    .site-nav .brand .sq {
+      width: 32px; height: 32px; border: 1.5px solid var(--eid-ink-800);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--eid-serif); font-size: 15px; letter-spacing: -0.03em;
+      position: relative;
+    }
+    .site-nav .brand .sq::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 1.5px; background: var(--eid-ink-800); }
+    .site-nav .brand .sq .d { color: var(--eid-amber-600); }
+    .site-nav nav { display:flex; gap: 28px; }
+    .site-nav nav a { font-size: 13px; color: var(--eid-text-soft); letter-spacing: 0.02em; }
+    .site-nav nav a:hover { color: var(--eid-ink-800); text-decoration: none; }
+    .site-nav .cta {
+      font-family: var(--eid-sans); font-weight: 500; font-size: 13px;
+      padding: 9px 16px; background: var(--eid-ink-800); color: #fff;
+      text-decoration: none; letter-spacing: 0.02em;
+    }
+    .site-nav .cta:hover { background: var(--eid-ink-900); }
+
+    /* hero */
+    .hero {
+      max-width: 1240px; margin: 0 auto;
+      padding: 80px 32px 100px;
+      display: grid; grid-template-columns: 1.4fr 1fr;
+      gap: 80px;
+      align-items: end;
+      border-bottom: 1px solid var(--eid-rule);
+    }
+    .hero .lead .eyebrow { margin-bottom: 28px; }
+    .hero h1 {
+      margin: 0;
+      font-family: var(--eid-serif); font-weight: 300;
+      font-size: clamp(56px, 8vw, 132px);
+      line-height: 0.95; letter-spacing: -0.035em;
+      color: var(--eid-ink-900);
+    }
+    .hero h1 em { font-style: italic; color: var(--eid-amber-700); }
+    .hero .sub {
+      margin-top: 32px; max-width: 640px;
+      font-family: var(--eid-serif); font-size: 24px; font-style: italic;
+      line-height: 1.4; color: var(--eid-text-soft);
+    }
+    .hero .ctas { margin-top: 36px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+    .hero .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; font-family: var(--eid-sans); font-weight: 500; font-size: 14px; letter-spacing: 0.02em; text-decoration: none; border-radius: 2px; transition: all 0.18s; }
+    .hero .btn.primary { background: var(--eid-ink-800); color: #fff; }
+    .hero .btn.primary:hover { background: var(--eid-ink-900); }
+    .hero .btn.ghost { color: var(--eid-ink-800); border-bottom: 1px solid var(--eid-ink-800); padding: 14px 0; }
+    .hero .btn.ghost:hover { color: var(--eid-amber-700); border-bottom-color: var(--eid-amber-700); }
+
+    .hero .side { padding-bottom: 8px; }
+    .hero .side-card {
+      border: 1px solid var(--eid-rule);
+      background: var(--eid-n-0);
+      padding: 28px;
+      display: grid; gap: 16px;
+    }
+    .hero .side-card .lab { font-family: var(--eid-mono); font-size: 10px; letter-spacing: 0.16em; color: var(--eid-text-muted); text-transform: uppercase; }
+    .hero .side-card .body-q { font-family: var(--eid-serif); font-size: 22px; line-height: 1.35; color: var(--eid-ink-900); letter-spacing: -0.01em; }
+    .hero .side-card .body-q em { font-style: italic; color: var(--eid-amber-700); }
+    .hero .side-card .ladder-lbl { display: flex; justify-content: space-between; font-family: var(--eid-mono); font-size: 10px; color: var(--eid-text-muted); letter-spacing: 0.12em; margin-top: 10px; }
+    .hero .side-card .meta {
+      padding-top: 18px; border-top: 1px solid var(--eid-rule);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .hero .side-card .meta .k { font-family: var(--eid-mono); font-size: 10px; letter-spacing: 0.12em; color: var(--eid-text-muted); text-transform: uppercase; margin-bottom: 4px; }
+    .hero .side-card .meta .v { font-family: var(--eid-serif); font-size: 16px; color: var(--eid-ink-900); letter-spacing: -0.005em; }
+
+    /* trust strip */
+    .trust {
+      max-width: 1240px; margin: 0 auto;
+      padding: 28px 32px;
+      display: grid; grid-template-columns: 200px 1fr;
+      gap: 32px;
+      align-items: center;
+      border-bottom: 1px solid var(--eid-rule);
+    }
+    .trust .ti { font-family: var(--eid-mono); font-size: 10px; letter-spacing: 0.16em; color: var(--eid-text-muted); text-transform: uppercase; }
+    .trust .logos { display: flex; gap: 36px; flex-wrap: wrap; font-family: var(--eid-serif); font-size: 22px; color: var(--eid-text-soft); letter-spacing: -0.01em; }
+
+    /* section header */
+    .web-sec-head { max-width: 1240px; margin: 0 auto; padding: 100px 32px 32px; }
+    .web-sec-head .eyebrow { margin-bottom: 16px; }
+    .web-sec-head h2 { margin: 0; font-family: var(--eid-serif); font-weight: 300; font-size: clamp(40px, 5vw, 68px); line-height: 1.05; letter-spacing: -0.03em; color: var(--eid-ink-900); max-width: 920px; }
+    .web-sec-head h2 em { font-style: italic; color: var(--eid-amber-700); }
+    .web-sec-head .lede { margin-top: 24px; max-width: 720px; font-size: 18px; line-height: 1.55; color: var(--eid-text-soft); }
+
+    /* the gap section */
+    .gap-section { background: var(--eid-paper-100); padding: 100px 0 60px; border-top: 1px solid var(--eid-rule); border-bottom: 1px solid var(--eid-rule); }
+    .gap-grid { max-width: 1240px; margin: 60px auto 0; padding: 0 32px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--eid-rule); border: 1px solid var(--eid-rule); }
+    .gap-grid .i { background: var(--eid-paper-50); padding: 30px; display: grid; grid-template-rows: auto auto 1fr; gap: 12px; }
+    .gap-grid .n { font-family: var(--eid-mono); font-size: 13px; color: var(--eid-ink-800); letter-spacing: 0.08em; }
+    .gap-grid .t { font-family: var(--eid-serif); font-size: 22px; line-height: 1.2; letter-spacing: -0.01em; color: var(--eid-ink-900); }
+    .gap-grid .d { font-size: 14px; line-height: 1.55; color: var(--eid-text-soft); }
+
+    /* four themes */
+    .themes { max-width: 1240px; margin: 0 auto; padding: 0 32px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .themes .theme {
+      padding: 36px;
+      border: 1px solid var(--eid-rule);
+      background: var(--eid-bg-alt);
+      display: grid; grid-template-rows: auto auto auto 1fr;
+      gap: 18px;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .themes .theme:hover { background: var(--eid-paper-100); }
+    .themes .theme .top { display: flex; justify-content: space-between; align-items: baseline; }
+    .themes .theme .n { font-family: var(--eid-serif); font-size: 36px; font-weight: 400; color: var(--eid-ink-800); letter-spacing: -0.025em; line-height: 1; }
+    .themes .theme .arrow { font-family: var(--eid-serif); font-size: 22px; color: var(--eid-ink-800); transition: transform 0.2s; }
+    .themes .theme:hover .arrow { transform: translate(3px, -3px); }
+    .themes .theme .ti { font-family: var(--eid-serif); font-size: 28px; line-height: 1.15; color: var(--eid-ink-900); letter-spacing: -0.018em; }
+    .themes .theme .ds { font-size: 14px; line-height: 1.55; color: var(--eid-text-soft); }
+    .themes .theme .chips { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 16px; border-top: 1px solid var(--eid-rule); align-self: end; }
+    .themes .theme .chips span { font-family: var(--eid-mono); font-size: 10px; letter-spacing: 0.08em; color: var(--eid-text-muted); text-transform: uppercase; padding: 4px 8px; border: 1px solid var(--eid-rule); }
+
+    /* framework section (ink) */
+    .frame-band { background: var(--eid-ink-800); color: #fff; padding: 100px 0; }
+    .frame-band .web-sec-head { padding-top: 0; padding-bottom: 32px; }
+    .frame-band .web-sec-head .eyebrow { color: var(--eid-ink-400); }
+    .frame-band .web-sec-head h2 { color: #fff; }
+    .frame-band .web-sec-head h2 em { color: var(--eid-amber-500); }
+    .frame-band .web-sec-head .lede { color: rgba(255,255,255,0.72); }
+    .frame-band .strip {
+      max-width: 1240px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .frame-band .step { background: var(--eid-ink-800); padding: 28px; display: grid; grid-template-rows: auto auto auto 1fr; gap: 12px; position: relative; min-height: 280px; }
+    .frame-band .step::before { content: ""; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: #fff; }
+    .frame-band .step:nth-child(1)::before { opacity: 1; }
+    .frame-band .step:nth-child(2)::before { opacity: 0.78; }
+    .frame-band .step:nth-child(3)::before { opacity: 0.56; }
+    .frame-band .step:nth-child(4)::before { opacity: 0.34; }
+    .frame-band .step:nth-child(5)::before { opacity: 0.18; }
+    .frame-band .step .n { font-family: var(--eid-mono); font-size: 12px; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); }
+    .frame-band .step .ti { font-family: var(--eid-serif); font-size: 24px; line-height: 1.15; color: #fff; letter-spacing: -0.012em; }
+    .frame-band .step .ds { font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.72); }
+    .frame-band .step .out { font-family: var(--eid-mono); font-size: 10px; letter-spacing: 0.08em; color: var(--eid-amber-500); text-transform: uppercase; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.15); }
+
+    /* evidence band */
+    .evidence-band { max-width: 1240px; margin: 0 auto; padding: 100px 32px; }
+    .ev-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .ev .v { font-family: var(--eid-serif); font-weight: 400; font-size: 78px; line-height: 1; color: var(--eid-ink-800); letter-spacing: -0.03em; }
+    .ev .v em { color: var(--eid-amber-700); font-style: normal; }
+    .ev .l { font-size: 15px; line-height: 1.5; color: var(--eid-text-soft); margin-top: 12px; max-width: 240px; }
+    .ev .s { font-family: var(--eid-mono); font-size: 10px; letter-spacing: 0.08em; color: var(--eid-text-muted); text-transform: uppercase; margin-top: 10px; }
+
+    /* people teaser */
+    .people-teaser { max-width: 1240px; margin: 0 auto; padding: 0 32px 100px; }
+    .people-teaser .row { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: stretch; }
+    .people-teaser .img { background: var(--eid-paper-200); position: relative; min-height: 380px; padding: 36px; display: grid; grid-template-rows: auto 1fr auto; }
+    .people-teaser .img .lab { font-family: var(--eid-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--eid-paper-700); text-transform: uppercase; }
+    .people-teaser .img .name { font-family: var(--eid-serif); font-size: 72px; font-weight: 300; line-height: 0.95; letter-spacing: -0.03em; color: var(--eid-ink-900); }
+    .people-teaser .img .role { font-family: var(--eid-mono); font-size: 12px; letter-spacing: 0.14em; color: var(--eid-paper-700); text-transform: uppercase; }
+    .people-teaser .copy { padding: 36px 0; display: grid; gap: 18px; align-content: center; }
+    .people-teaser .copy .ti { font-family: var(--eid-serif); font-size: 36px; line-height: 1.1; letter-spacing: -0.02em; color: var(--eid-ink-900); }
+    .people-teaser .copy .ti em { font-style: italic; color: var(--eid-amber-700); }
+    .people-teaser .copy .ds { font-size: 16px; line-height: 1.6; color: var(--eid-text-soft); }
+    .people-teaser .logos { display: flex; gap: 24px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--eid-rule); font-family: var(--eid-serif); font-size: 17px; color: var(--eid-ink-800); }
+
+    /* CTA band */
+    .cta-band { background: var(--eid-ink-800); color: #fff; padding: 100px 0; }
+    .cta-band-inner {
+      max-width: 1240px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: end;
+    }
+    .cta-band .eyebrow { color: var(--eid-amber-500); }
+    .cta-band h2 { margin: 24px 0 0; font-family: var(--eid-serif); font-weight: 300; font-size: clamp(48px, 7vw, 100px); line-height: 0.97; letter-spacing: -0.035em; color: #fff; }
+    .cta-band h2 em { font-style: italic; color: var(--eid-amber-500); }
+    .cta-band .sub { margin-top: 28px; font-family: var(--eid-serif); font-style: italic; font-size: 22px; line-height: 1.5; color: rgba(255,255,255,0.78); max-width: 600px; }
+    .cta-band .right { display: grid; gap: 18px; padding-bottom: 8px; }
+    .cta-band .field { display: flex; flex-direction: column; gap: 6px; }
+    .cta-band .field label { font-family: var(--eid-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+    .cta-band .field input {
+      background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,0.4);
+      padding: 12px 0; font-family: var(--eid-sans); font-size: 16px; color: #fff;
+      outline: none;
+    }
+    .cta-band .field input::placeholder { color: rgba(255,255,255,0.4); }
+    .cta-band .field input:focus { border-bottom-color: var(--eid-amber-500); }
+    .cta-band button.submit {
+      margin-top: 16px;
+      background: #fff; color: var(--eid-ink-800);
+      font-family: var(--eid-sans); font-weight: 500; font-size: 14px;
+      letter-spacing: 0.02em; padding: 14px 22px; border: 0; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 10px; justify-content: center;
+      transition: all 0.18s;
+    }
+    .cta-band button.submit:hover { background: var(--eid-amber-500); }
+    .cta-band .quietnote { font-family: var(--eid-mono); font-size: 11px; letter-spacing: 0.06em; color: rgba(255,255,255,0.5); margin-top: 10px; }
+
+    /* site footer */
+    .site-foot { background: var(--eid-ink-900); color: #fff; padding: 60px 0 28px; }
+    .site-foot-inner { max-width: 1240px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
+    .site-foot h5 { margin: 0 0 12px; font-family: var(--eid-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5); font-weight: 500; }
+    .site-foot ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
+    .site-foot a { color: rgba(255,255,255,0.78); }
+    .site-foot a:hover { color: #fff; text-decoration: none; }
+    .site-foot .colophon {
+      max-width: 1240px; margin: 48px auto 0; padding: 24px 32px 0;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--eid-mono); font-size: 11px; letter-spacing: 0.08em; color: rgba(255,255,255,0.5);
+    }
+    .site-foot .brand-block { display:flex; align-items:center; gap: 14px; }
+    .site-foot .brand-block .sq {
+      width: 36px; height: 36px; border: 1.5px solid #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--eid-serif); font-size: 17px; letter-spacing: -0.03em; color: #fff;
+      position: relative;
+    }
+    .site-foot .brand-block .sq::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 1.5px; background: #fff; }
+    .site-foot .brand-block .sq .d { color: var(--eid-amber-500); }
+    .site-foot .brand-block .nm { font-family: var(--eid-serif); font-size: 22px; letter-spacing: -0.02em; color: #fff; }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 48px; padding: 60px 24px 80px; }
+      .trust { grid-template-columns: 1fr; padding: 24px; }
+      .gap-grid { grid-template-columns: 1fr 1fr; }
+      .themes { grid-template-columns: 1fr; padding: 0 24px 80px; }
+      .frame-band .strip { grid-template-columns: 1fr; }
+      .ev-grid { grid-template-columns: 1fr 1fr; }
+      .people-teaser .row { grid-template-columns: 1fr; }
+      .cta-band-inner { grid-template-columns: 1fr; gap: 48px; }
+      .site-foot-inner { grid-template-columns: 1fr 1fr; }
+      .site-nav nav { display: none; }
+    }
+    @media (max-width: 600px) {
+      .gap-grid { grid-template-columns: 1fr; }
+      .ev-grid { grid-template-columns: 1fr; }
+      .site-foot-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header style="border-bottom: 1px solid var(--eid-rule); background: var(--eid-paper-50);">
+    <div class="site-nav">
+      <a href="#" class="brand">
+        <span class="sq">E<span class="d">·</span>D</span>
+        <span>Excel<span class="dot">·</span>in<span class="dot">·</span><span class="italic">Digital</span></span>
+        <span style="display: inline-flex; align-items: center; gap: 8px; padding-left: 14px; margin-left: 2px; border-left: 1px solid var(--eid-rule); font-family: var(--eid-mono); font-size: 10px; letter-spacing: 0.16em; color: var(--eid-amber-700); text-transform: uppercase;">
+          <span class="ai-signal"><i></i><i></i><i></i><i></i><i></i></span>
+          AI-led
+        </span>
+      </a>
+      <nav>
+        <a href="#approach">Approach</a>
+        <a href="#themes">Themes</a>
+        <a href="#framework">Engagements</a>
+        <a href="#people">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="cta">Book a workshop →</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="approach">
+    <div class="lead">
+      <div class="ai-badge ai-badge--lg" style="margin-bottom: 28px;">
+        <span class="ai-signal ai-signal--lg"><i></i><i></i><i></i><i></i><i></i></span>
+        AI · LED DIGITAL TRANSFORMATION
+      </div>
+      <h1><em style="display: block; font-size: 0.42em; color: var(--eid-amber-700); font-style: italic; letter-spacing: -0.012em; margin-bottom: 0.12em; line-height: 1.05;">AI-led.</em>Tier-1 grade. <em>Then we hand</em> the keys back.</h1>
+      <p class="sub">A six-week engagement that fuses strategy-house quality answers with hands-on <span class="ai-tag">AI</span> fluency — and leaves your leaders ready to govern the next decision themselves.</p>
+      <div class="ctas">
+        <a class="btn primary" href="#contact">Book the 2-hour workshop →</a>
+        <a class="btn ghost" href="#framework">Read the approach ↗</a>
+      </div>
+    </div>
+    <div class="side">
+      <div class="side-card">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div class="lab">The arc</div>
+          <span class="ai-tag" style="font-size: 11px;">AI</span>
+        </div>
+        <div class="body-q">Strategy-grade answer in. <em>AI fluency</em> up. Dependency on us — out.</div>
+        <div style="display: grid; gap: 16px; margin-top: 4px;">
+          <div>
+            <div class="steprule"><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="ladder-lbl"><span>DEPENDENCY</span><span>HANDOFF</span></div>
+          </div>
+          <div style="position: relative;">
+            <div style="display: flex; align-items: flex-end; gap: 8px; height: 28px; color: var(--eid-amber-600);">
+              <i style="flex:1; height: 22%; background: currentColor;"></i>
+              <i style="flex:1; height: 42%; background: currentColor;"></i>
+              <i style="flex:1; height: 62%; background: currentColor;"></i>
+              <i style="flex:1; height: 80%; background: currentColor;"></i>
+              <i style="flex:1; height: 100%; background: currentColor;"></i>
+            </div>
+            <div class="ladder-lbl" style="margin-top: 8px;"><span>BASELINE</span><span>AI FLUENCY</span></div>
+          </div>
+        </div>
+        <div class="meta">
+          <div><div class="k">Engagement</div><div class="v">6-week module</div></div>
+          <div><div class="k">First step</div><div class="v">2-hour workshop</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="trust">
+    <div class="ti">Practitioners from</div>
+    <div class="logos">
+      <span>Amazon</span><span>Visa</span><span>Google</span><span>Shuaa Capital</span><span>Strategy&amp;</span><span>Booz Allen Hamilton</span>
+    </div>
+  </section>
+
+  <!-- THE GAP -->
+  <section class="gap-section">
+    <div class="web-sec-head" style="padding-top: 0;">
+      <div class="eyebrow">The constraint</div>
+      <h2>The gap is rarely strategy. <em>It's leadership fluency,</em> prioritization discipline, and decision velocity.</h2>
+      <p class="lede">Six failure modes we see repeatedly across mid-market CEOs and divisional leaders weighing digital and AI investments.</p>
+    </div>
+    <div class="gap-grid">
+      <div class="i"><div class="n">01</div><div class="t">Fragmented maturity</div><div class="d">Digital &amp; AI capability uneven across the organization.</div></div>
+      <div class="i"><div class="n">02</div><div class="t">Strategy → delivery gap</div><div class="d">Limited readiness to translate digital or AI strategy into delivery.</div></div>
+      <div class="i"><div class="n">03</div><div class="t">Leadership skill gaps</div><div class="d">Leaders and workforce lacking the fluency to govern execution.</div></div>
+      <div class="i"><div class="n">04</div><div class="t">Prioritization paralysis</div><div class="d">Difficulty identifying high-ROI use cases worth backing.</div></div>
+      <div class="i"><div class="n">05</div><div class="t">Pilots that stall</div><div class="d">Proofs-of-concept that never scale past the demo.</div></div>
+      <div class="i"><div class="n">06</div><div class="t">Data readiness</div><div class="d">Siloed processes, legacy tech, fragmented data foundations.</div></div>
+    </div>
+  </section>
+
+  <!-- FOUR THEMES -->
+  <div class="web-sec-head" id="themes">
+    <div class="eyebrow">Four platforms · One operating system</div>
+    <h2>Four platforms — <em>all routed through AI.</em></h2>
+    <p class="lede">Every engagement carries an AI lens. Practitioner-led modules, plugged into your real decision — not a generic curriculum.</p>
+  </div>
+  <section class="themes">
+    <a class="theme" href="#contact" style="background: var(--eid-paper-100); border-color: var(--eid-amber-600);">
+      <div class="top">
+        <span class="n" style="display: inline-flex; align-items: center; gap: 12px;">01<span class="ai-signal" style="color: var(--eid-amber-600);"><i></i><i></i><i></i><i></i><i></i></span></span>
+        <span class="arrow">↗</span>
+      </div>
+      <span class="ti">AI fluency in the workplace</span>
+      <span class="ds">The flagship lens. Prompting, agentic copilots, workflow automation and operating-model change — measured in productivity, not pilots.</span>
+      <div class="chips"><span>Prompting</span><span>Agentic AI</span><span>Workflow auto</span><span>Change mgmt</span></div>
+    </a>
+    <a class="theme" href="#contact">
+      <div class="top"><span class="n">02</span><span class="arrow">↗</span></div>
+      <span class="ti">Digital business models &amp; experience design <span class="ai-tag" style="font-size: 0.42em; vertical-align: 0.3em; margin-left: 6px;">AI</span></span>
+      <span class="ds">Approaching go-to-market investment decisions with lasting commercial impact — journey mapping, prototyping, conversion, omnichannel design.</span>
+      <div class="chips"><span>Go / No-Go</span><span>Marketplace</span><span>Build vs partner</span><span>Conversion</span></div>
+    </a>
+    <a class="theme" href="#contact">
+      <div class="top"><span class="n">03</span><span class="arrow">↗</span></div>
+      <span class="ti">Digital payments &amp; authentication <span class="ai-tag" style="font-size: 0.42em; vertical-align: 0.3em; margin-left: 6px;">AI</span></span>
+      <span class="ds">Modernizing the payments stack across acceptance, orchestration, and frictionless auth — B2C or B2B, regional or cross-border.</span>
+      <div class="chips"><span>Gateways</span><span>Auth · 3DS / Passkeys</span><span>Tokenization</span><span>BNPL</span></div>
+    </a>
+    <a class="theme" href="#contact">
+      <div class="top"><span class="n">04</span><span class="arrow">↗</span></div>
+      <span class="ti">Customer centricity in product <span class="ai-tag" style="font-size: 0.42em; vertical-align: 0.3em; margin-left: 6px;">AI</span></span>
+      <span class="ds">Sharpening product-market fit. Working-backwards from the customer, input vs. output metrics, ecosystem and network effect plays.</span>
+      <div class="chips"><span>PRFAQ</span><span>10× thinking</span><span>Ecosystems</span><span>Metrics</span></div>
+    </a>
+  </section>
+
+  <!-- FRAMEWORK -->
+  <section class="frame-band" id="framework">
+    <div class="web-sec-head" style="padding-top: 0;">
+      <div class="eyebrow" style="color: var(--eid-ink-400); display: inline-flex; align-items: center; gap: 14px;">
+        <span class="ai-signal ai-signal--sm ai-signal--ink"><i></i><i></i><i></i><i></i><i></i></span>
+        How AI-led delivery works
+      </div>
+      <h2>One module. <em>Five steps.</em> Six weeks.</h2>
+      <p class="lede" style="color: rgba(255,255,255,0.72);">Strategy answers <em>and</em> AI fluency advance together — baseline through impact measurement, fused into a single engagement.</p>
+    </div>
+    <div class="strip">
+      <div class="step">
+        <span class="n">01 · W1–2</span>
+        <span class="ti">Baseline &amp; ideation</span>
+        <span class="ds">Maturity diagnostic across people, process, and data readiness.</span>
+        <span class="out">Out · Maturity report</span>
+      </div>
+      <div class="step">
+        <span class="n">02 · W3–4</span>
+        <span class="ti">Evaluate &amp; prioritize</span>
+        <span class="ds">Ranked by impact × effort × feasibility — sequenced into a roadmap.</span>
+        <span class="out">Out · Ranked roadmap</span>
+      </div>
+      <div class="step">
+        <span class="n">03 · W3–5</span>
+        <span class="ti">Decision learning</span>
+        <span class="ds">Tailored modules built around the decisions on the line.</span>
+        <span class="out">Out · Leader fluency</span>
+      </div>
+      <div class="step">
+        <span class="n">04 · W5–6</span>
+        <span class="ti">Pilot execution</span>
+        <span class="ds">One practical workflow live — built with your team, hands-on.</span>
+        <span class="out">Out · Live pilot</span>
+      </div>
+      <div class="step">
+        <span class="n">05 · W6+</span>
+        <span class="ti">Impact measurement</span>
+        <span class="ds">KPI framework and dashboards that survive the handoff.</span>
+        <span class="out">Out · KPI dashboards</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVIDENCE -->
+  <div class="web-sec-head">
+    <div class="eyebrow">Receipts</div>
+    <h2>The body of work behind the practice. <em>Quantified.</em></h2>
+    <p class="lede">A non-exhaustive selection of references across the four themes. Engagement details available on request.</p>
+  </div>
+  <section class="evidence-band" style="padding-top: 0;">
+    <div class="ev-grid">
+      <div class="ev"><div class="v">+1000<em style="font-size:0.55em;letter-spacing:0;"> bps</em></div><div class="l">Conversion uplift, global e-commerce CX transformation.</div><div class="s">Ref · MEA &amp; Turkey</div></div>
+      <div class="ev"><div class="v">$200<em style="font-size:0.55em;letter-spacing:0;">B+</em></div><div class="l">Tokenized payments across 40+ banks, mobile-wallet adoption from near-zero.</div><div class="s">Ref · CEMEA</div></div>
+      <div class="ev"><div class="v">100M<em style="font-size:0.55em;letter-spacing:0;">+</em></div><div class="l">Incremental views via partnership build for a global media platform.</div><div class="s">Ref · MENA</div></div>
+      <div class="ev"><div class="v">25<em style="font-size:0.55em;letter-spacing:0;"> yrs</em></div><div class="l">Multinational delivery across Amazon, Visa, Google, Strategy&amp; and Booz Allen.</div><div class="s">Lead · Hadi Raad</div></div>
+    </div>
+  </section>
+
+  <!-- PEOPLE -->
+  <section class="people-teaser" id="people">
+    <div class="row">
+      <div class="img">
+        <span class="lab">Managing Director</span>
+        <span class="name">Hadi<br/>Raad</span>
+        <span class="role">25+ yrs · Amazon · Visa · Google · Strategy&amp;</span>
+      </div>
+      <div class="copy">
+        <div style="font-family: var(--eid-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--eid-text-muted);">People</div>
+        <h3 class="ti">Practitioner-led. <em>Engagements run by people who have made the same decision before.</em></h3>
+        <p class="ds">EiD engagements are delivered by executives with operating experience inside the world's leading digital, fintech, and consulting organizations. The roster compounds. The names below are where the practice was built.</p>
+        <div class="logos"><span>Amazon</span><span>Visa</span><span>Google</span><span>Shuaa</span><span>Strategy&amp;</span><span>Booz Allen</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band" id="contact">
+    <div class="cta-band-inner">
+      <div>
+        <div class="eyebrow">A 2-hour discovery workshop</div>
+        <h2>Two hours.<br/>Three leaders.<br/><em>One usable snapshot.</em></h2>
+        <p class="sub">We meet with three of your leaders, quick-scan your maturity, identify three candidate priorities, and leave you with a one-page snapshot you can act on. Complimentary, no obligation.</p>
+      </div>
+      <div class="right">
+        <div class="field"><label>Full name</label><input type="text" placeholder="Your name" /></div>
+        <div class="field"><label>Work email</label><input type="email" placeholder="you@company.com" /></div>
+        <div class="field"><label>What decision are you weighing?</label><input type="text" placeholder="GTM, Build vs partner, AI roll-out…" /></div>
+        <button class="submit" type="button">Request the workshop →</button>
+        <div class="quietnote">Replies within one business day · Dubai &amp; London</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-foot">
+    <div class="site-foot-inner">
+      <div>
+        <div class="brand-block">
+          <div class="sq">E<span class="d">·</span>D</div>
+          <div>
+            <div class="nm">Excel<span style="color: var(--eid-amber-500);">·</span>in<span style="color: var(--eid-amber-500);">·</span><em style="font-style:italic;">Digital</em></div>
+            <div style="font-family: var(--eid-mono); font-size: 10px; letter-spacing: 0.12em; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-top: 2px;">Decisions · Execution · Readiness</div>
+          </div>
+        </div>
+        <p style="margin-top: 22px; max-width: 380px; font-family: var(--eid-serif); font-size: 17px; font-style: italic; color: rgba(255,255,255,0.7); line-height: 1.5;">A consulting practice that delivers strategy-grade answers and walks out with the client team owning the execution.</p>
+      </div>
+      <div>
+        <h5>Practice</h5>
+        <ul>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#framework">5-step framework</a></li>
+          <li><a href="#framework">Engagements</a></li>
+          <li><a href="#themes">Themes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>About</h5>
+        <ul>
+          <li><a href="#people">People</a></li>
+          <li><a href="#contact">References</a></li>
+          <li><a href="#contact">Insights</a></li>
+          <li><a href="#contact">Press</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:md@excelindigital.com">MD@ExcelinDigital.com</a></li>
+          <li>Dubai · London</li>
+          <li><a href="https://www.linkedin.com/in/hadiraad/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="colophon">
+      <span>© 2026 ExcelinDigital · All rights reserved</span>
+      <span>AI-led Digital Transformation · Dubai &amp; London</span>
+    </div>
+  </footer>
+
+</body>
+</html>
