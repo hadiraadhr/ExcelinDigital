@@ -5,7 +5,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ExcelinDigital — AI-led Digital Transformation</title>
   <meta name="description" content="A consulting practice that delivers strategy-grade answers and walks out with the client team owning the execution. AI-led digital transformation for mid-market CEOs, CDOs, and Product leaders." />
-  <link rel="stylesheet" href="assets/tokens.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       EiD Design Tokens
+    ============================================================ */
+    :root {
+      --eid-ink-900: #001A36;
+      --eid-ink-800: #002E5F;
+      --eid-ink-700: #0A437F;
+      --eid-ink-600: #066BB0;
+      --eid-ink-500: #2E89C7;
+      --eid-ink-400: #71B9E4;
+      --eid-ink-300: #B6C8DE;
+      --eid-ink-200: #D8E4EE;
+      --eid-ink-100: #EAF1F8;
+      --eid-amber-700: #B86317;
+      --eid-amber-600: #D97737;
+      --eid-amber-500: #E88A2C;
+      --eid-amber-200: #F6DCC2;
+      --eid-amber-100: #FBEEDF;
+      --eid-paper-50:  #FBF7F0;
+      --eid-paper-100: #F3ECDD;
+      --eid-paper-200: #EBDDC3;
+      --eid-paper-300: #BDB59D;
+      --eid-paper-700: #585753;
+      --eid-n-0:   #FFFFFF;
+      --eid-n-50:  #F8F9FB;
+      --eid-n-100: #F2F4F7;
+      --eid-n-200: #E5E9EE;
+      --eid-n-500: #6B7480;
+      --eid-n-800: #1F1F1F;
+      --eid-bg:        #FBF7F0;
+      --eid-bg-alt:    #FFFFFF;
+      --eid-text:      #1F1F1F;
+      --eid-text-soft: #585753;
+      --eid-text-muted:#6B7480;
+      --eid-rule:      #DCD5C4;
+      --eid-serif: "Source Serif 4", Georgia, serif;
+      --eid-sans:  "IBM Plex Sans", -apple-system, system-ui, sans-serif;
+      --eid-mono:  "IBM Plex Mono", ui-monospace, monospace;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: var(--eid-sans);
+      font-size: 15px;
+      line-height: 1.45;
+      color: var(--eid-text);
+      background: var(--eid-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--eid-ink-800); color: #fff; }
+    a { color: var(--eid-ink-800); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .eyebrow {
+      font-family: var(--eid-sans);
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--eid-ink-800);
+    }
+    /* Step-rule motif */
+    .steprule { display: flex; align-items: center; gap: 8px; height: 8px; }
+    .steprule i { display: block; flex: 1; height: 1px; background: var(--eid-ink-800); position: relative; }
+    .steprule i::after { content: ""; position: absolute; left: 0; top: -3px; width: 7px; height: 7px; border-radius: 50%; background: var(--eid-ink-800); }
+    .steprule i:nth-child(1) { opacity: 1.0; }
+    .steprule i:nth-child(2) { opacity: 0.78; }
+    .steprule i:nth-child(3) { opacity: 0.56; }
+    .steprule i:nth-child(4) { opacity: 0.34; }
+    .steprule i:nth-child(5) { opacity: 0.18; }
+    /* AI signal motif */
+    .ai-signal { display: inline-flex; align-items: flex-end; gap: 3px; height: 14px; color: var(--eid-amber-600); vertical-align: -2px; }
+    .ai-signal i { display: block; width: 3px; background: currentColor; }
+    .ai-signal i:nth-child(1) { height: 22%; }
+    .ai-signal i:nth-child(2) { height: 42%; }
+    .ai-signal i:nth-child(3) { height: 62%; }
+    .ai-signal i:nth-child(4) { height: 80%; }
+    .ai-signal i:nth-child(5) { height: 100%; }
+    .ai-signal--sm { height: 10px; gap: 2px; }
+    .ai-signal--sm i { width: 2px; }
+    .ai-signal--lg { height: 28px; gap: 5px; }
+    .ai-signal--lg i { width: 5px; }
+    .ai-signal--ink { color: var(--eid-amber-500); }
+    /* AI tag */
+    .ai-tag { display: inline-flex; align-items: center; font-family: var(--eid-mono); font-weight: 600; font-size: 0.78em; letter-spacing: 0.14em; text-transform: uppercase; color: var(--eid-amber-700); line-height: 1; white-space: nowrap; }
+    .ai-tag::before { content: "["; margin-right: 1px; opacity: 0.7; font-weight: 400; }
+    .ai-tag::after  { content: "]"; margin-left:  1px; opacity: 0.7; font-weight: 400; }
+    /* AI badge */
+    .ai-badge { display: inline-flex; align-items: center; gap: 10px; padding: 7px 10px; border: 1px solid var(--eid-amber-700); font-family: var(--eid-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--eid-amber-700); line-height: 1; background: rgba(255,255,255,0.4); }
+    .ai-badge .ai-signal { height: 12px; }
+    .ai-badge--lg { padding: 10px 14px; font-size: 12px; gap: 14px; }
+    .ai-badge--lg .ai-signal { height: 18px; }
+  </style>
   <style>
     /* nav strip */
     .site-nav {
@@ -521,5 +614,13 @@
     </div>
   </footer>
 
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+  </script>
 </body>
 </html>
