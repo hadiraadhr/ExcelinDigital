@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 72" width="120" height="72">
-  <!-- red arch over "citi" — Bézier curves upward reliably -->
-  <path d="M18,30 Q60,6 102,30" fill="none" stroke="#EF3E42" stroke-width="4.5" stroke-linecap="round"/>
-  <text x="8" y="65" font-family="Arial,sans-serif" font-size="42" font-weight="700" fill="#003B87">citi</text>
+  <!-- red arch over the word — wide gentle rainbow sitting above letters -->
+  <path d="M6,36 Q60,4 114,36" fill="none" stroke="#C8102E" stroke-width="5" stroke-linecap="round"/>
+  <!-- "citi" text -->
+  <text x="6" y="66" font-family="Arial,sans-serif" font-size="40" font-weight="700" fill="#003B87">citi</text>
 </svg>
