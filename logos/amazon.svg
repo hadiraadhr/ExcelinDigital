@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 145 44" width="145" height="44">
-  <text x="6" y="30" font-family="'Arial Black',Arial,sans-serif" font-size="28" font-weight="900" letter-spacing="-0.5" fill="#221F20">amazon</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 145 56" width="145" height="56">
+  <text x="6" y="32" font-family="'Arial Black',Arial,sans-serif" font-size="28" font-weight="900" letter-spacing="-0.5" fill="#221F20">amazon</text>
   <!-- smile arrow -->
-  <path d="M14 38 Q52 50 88 38" fill="none" stroke="#FF9900" stroke-width="3.2" stroke-linecap="round"/>
-  <polygon points="86,35 92,39 85,42" fill="#FF9900"/>
+  <path d="M16 43 Q52 56 90 43" fill="none" stroke="#FF9900" stroke-width="3.2" stroke-linecap="round"/>
+  <polygon points="88,39 95,44 87,48" fill="#FF9900"/>
 </svg>
