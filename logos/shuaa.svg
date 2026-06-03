@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 72" width="180" height="72">
+  <!-- square icon: dark navy border with inner stylised S/building shape -->
+  <rect x="4" y="10" width="52" height="52" rx="4" fill="none" stroke="#0D2560" stroke-width="4"/>
+  <!-- inner stylised shape — two vertical bars + horizontal connector (simplified building mark) -->
+  <rect x="14" y="24" width="10" height="30" fill="#0D2560"/>
+  <rect x="40" y="24" width="10" height="30" fill="#0D2560"/>
+  <rect x="14" y="24" width="36" height="10" fill="#0D2560"/>
+  <!-- SHUAA text -->
+  <text x="66" y="57" font-family="'Arial Black',Arial,sans-serif" font-size="34" font-weight="900" letter-spacing="2" fill="#0D2560">SHUAA</text>
+</svg>
