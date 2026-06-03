@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 72" width="160" height="72">
-  <!-- "amazon" text -->
-  <text x="4" y="46" font-family="'Arial Black',Arial,sans-serif" font-size="36" font-weight="900" letter-spacing="-1" fill="#221F20">amazon</text>
-  <!-- smile: wide gentle curve from under 'a' to under 'z', with arrow tip -->
-  <path d="M8,56 Q76,78 144,55" fill="none" stroke="#FF9900" stroke-width="4" stroke-linecap="round"/>
-  <!-- arrow tip pointing right -->
-  <path d="M138,50 L147,55 L140,62" fill="none" stroke="#FF9900" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
