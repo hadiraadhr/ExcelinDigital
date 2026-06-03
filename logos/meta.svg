@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 44" width="148" height="44">
+  <defs>
+    <linearGradient id="mg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0082FB"/>
+      <stop offset="100%" style="stop-color:#00C6FF"/>
+    </linearGradient>
+  </defs>
+  <!-- infinity / meta loop icon -->
+  <path d="M10,22 C10,16 14,12 19,12 C24,12 27,15 30,19 C27,15 24,12 29,12 C34,12 38,16 38,22 C38,28 34,32 29,32 C24,32 21,29 18,25 C21,29 24,32 19,32 C14,32 10,28 10,22 Z" fill="none" stroke="url(#mg)" stroke-width="3.5" stroke-linecap="round"/>
+  <text x="46" y="32" font-family="'Optimistic Display',Arial,sans-serif" font-size="26" font-weight="700" fill="#1C2B33">Meta</text>
+</svg>
