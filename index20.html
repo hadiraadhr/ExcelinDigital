@@ -1291,7 +1291,21 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
       font-size: 11px;
       letter-spacing: 0.12em;
       color: var(--eid-text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
+    .tsh-card-num svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+    .tsh-card--ai .tsh-card-num svg { stroke: var(--eid-amber-600); }
     .tsh-card-title {
       font-family: var(--eid-serif);
       font-size: clamp(17px, 1.7vw, 21px);
@@ -2036,7 +2050,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
       <div class="tsh-track">
         <a class="tsh-card" href="themes.html">
           <div class="tsh-card-left">
-            <div class="tsh-card-num">01</div>
+            <div class="tsh-card-num">01 <svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
             <div class="tsh-card-title">Growth Acceleration &amp; Digital Go-to-Market</div>
             <div class="tsh-card-arrow">&#x2197;</div>
           </div>
@@ -2044,7 +2058,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
         </a>
         <a class="tsh-card" href="themes.html">
           <div class="tsh-card-left">
-            <div class="tsh-card-num">02</div>
+            <div class="tsh-card-num">02 <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
             <div class="tsh-card-title">Customer-Centric Product Building</div>
             <div class="tsh-card-arrow">&#x2197;</div>
           </div>
@@ -2052,7 +2066,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
         </a>
         <a class="tsh-card" href="themes.html">
           <div class="tsh-card-left">
-            <div class="tsh-card-num">03</div>
+            <div class="tsh-card-num">03 <svg viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></div>
             <div class="tsh-card-title">Digital Experience Design &amp; Conversion Optimization</div>
             <div class="tsh-card-arrow">&#x2197;</div>
           </div>
@@ -2060,7 +2074,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
         </a>
         <a class="tsh-card tsh-card--ai" href="themes.html">
           <div class="tsh-card-left">
-            <div class="tsh-card-num">04</div>
+            <div class="tsh-card-num">04 <svg viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg></div>
             <div class="tsh-card-title">AI Acceleration in the Workplace</div>
             <div class="tsh-card-arrow">&#x2197;</div>
           </div>
