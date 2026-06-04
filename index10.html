@@ -1492,7 +1492,6 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
     .clients-belt {
       display: flex; flex-direction: column; gap: 14px;
       padding: 20px 0; width: max-content;
-      animation: clients-scroll 30s linear infinite;
     }
     .clients-belt.is-paused { animation-play-state: paused; }
     .clients-belt-row { display: flex; gap: 48px; align-items: center; }
@@ -2432,27 +2431,11 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
     var shoveler = document.querySelector('.clients-shoveler');
     var belt     = document.querySelector('.clients-belt');
     if (!shoveler || !belt) return;
-    var dragging = false, startX = 0, originX = 0, paused = false, DUR = 30;
+    var dragging = false, startX = 0, originX = 0;
     function freeze() {
       originX = new DOMMatrix(getComputedStyle(belt).transform).m41;
       belt.style.transform = 'translateX(' + originX + 'px)';
-      belt.style.animation = 'none';
     }
-    function resume(curX) {
-      var halfW = belt.scrollWidth / 2;
-      curX = ((curX % halfW) - halfW) % halfW;
-      belt.style.transform = '';
-      belt.style.animation = '';
-      belt.style.animationDelay = ((curX / halfW) * DUR) + 's';
-      belt.classList.remove('is-paused');
-      paused = false;
-    }
-    shoveler.addEventListener('mouseenter', function() {
-      paused = true; belt.classList.add('is-paused');
-    });
-    shoveler.addEventListener('mouseleave', function() {
-      if (!dragging) resume(new DOMMatrix(getComputedStyle(belt).transform).m41);
-    });
     shoveler.addEventListener('mousedown', function(e) {
       dragging = true; shoveler.classList.add('is-dragging');
       startX = e.clientX; freeze(); e.preventDefault();
@@ -2463,7 +2446,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
     document.addEventListener('mouseup', function() {
       if (!dragging) return;
       dragging = false; shoveler.classList.remove('is-dragging');
-      resume(new DOMMatrix(getComputedStyle(belt).transform).m41);
+      originX = new DOMMatrix(getComputedStyle(belt).transform).m41;
     });
     shoveler.addEventListener('touchstart', function(e) {
       dragging = true; startX = e.touches[0].clientX; freeze();
@@ -2474,7 +2457,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
     document.addEventListener('touchend', function() {
       if (!dragging) return;
       dragging = false;
-      resume(new DOMMatrix(getComputedStyle(belt).transform).m41);
+      originX = new DOMMatrix(getComputedStyle(belt).transform).m41;
     });
   })();
   </script>
