@@ -2047,7 +2047,7 @@ header.site-nav { position: relative; }
 
   /* Mobile nav: hide desktop items, show hamburger */
   .site-nav nav { display: none; }
-  .site-nav .ai-badge { display: none; }
+  .site-nav > .ai-badge { display: none; }
   .hamburger-btn { display: flex; }
   .mobile-menu.open { display: flex; }
 
@@ -2104,6 +2104,10 @@ header.site-nav { position: relative; }
     flex: 0 0 85%;
   }
 
+  /* Approach strip: near-black background to distinguish from the section header above */
+  .frame-band { background: #080b12; }
+  .frame-band .strip .step { background: #080b12; }
+
   /* Approach strip: one card per scroll, full viewport width */
   .frame-band .strip {
     display: flex !important;
@@ -2154,29 +2158,17 @@ header.site-nav { position: relative; }
     display: none;
   }
   .frame-band .strip .step .step-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: absolute;
     bottom: 28px;
     right: 28px;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.18);
-    border: 1px solid rgba(255,255,255,0.45);
+    background: none;
+    border: none;
+    padding: 0;
     font-family: var(--eid-mono);
     font-size: 16px;
-    color: rgba(255,255,255,0.92);
+    color: rgba(255,255,255,0.4);
     cursor: pointer;
-    transition: background 0.15s, border-color 0.15s;
     line-height: 1;
-  }
-  .frame-band .strip .step .step-arrow:hover,
-  .frame-band .strip .step .step-arrow:focus {
-    background: rgba(255,255,255,0.30);
-    border-color: rgba(255,255,255,0.75);
-    outline: none;
   }
   .frame-band .strip .step:last-child .step-arrow {
     display: none;
