@@ -2082,6 +2082,14 @@ header.site-nav { position: relative; }
   /* Reduce hero padding */
   .hero { padding: 48px var(--sp-4) 48px; }
 
+  /* Smaller hero title on mobile */
+  .hero h1 { font-size: clamp(34px, 9vw, 60px); }
+
+  /* Compact workshop button so both CTAs fit on one line */
+  .hero .btn.primary { padding: 10px 16px; font-size: 13px; }
+  .hero .btn.ghost { padding: 10px 0; font-size: 13px; }
+  .hero .ctas { flex-wrap: nowrap; gap: 12px; }
+
   /* Stat numbers slightly smaller */
   .stat-num { font-size: var(--fs-3xl); }
 
@@ -2116,6 +2124,7 @@ header.site-nav { position: relative; }
   /* Reduce large section padding */
   .web-sec-head { padding: 40px var(--sp-3) 20px; }
   .hero { padding: 36px var(--sp-3) 36px; }
+  .hero h1 { font-size: clamp(30px, 8.5vw, 50px); }
 
   /* CTA gap */
   .cta-band .inner { gap: var(--sp-6); }
@@ -2179,7 +2188,7 @@ header.site-nav { position: relative; }
   <section class="hero" data-screen-label="02 Hero">
     <h1 style="font-size: clamp(56px, 8vw, 132px);">Experts step-in to help unlock execution</h1>
     <div class="lead">
-      <p class="sub">Senior digital domain experts, powered by purpose-built <span class="ai-tag">AI</span> agents, tackle your challenges and opportunities — delivering tier-1 strategy-house quality, leaving your team the skills and artifacts to carry it forward, and stay on-demand through execution.</p>
+      <p class="sub">Senior domain experts, powered by purpose-built <span class="ai-tag">[AI]</span> agents, tackle your challenges — leaving your team the skills and artifacts, and stay on-demand through execution.</p>
       <div class="ctas">
         <a class="btn primary" href="#workshop">Book the 2-hour workshop →</a>
         <a class="btn ghost" href="#framework">Read the approach ↗</a>
