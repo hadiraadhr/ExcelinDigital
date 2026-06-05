@@ -2034,6 +2034,14 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 .mobile-menu .mob-nav-links a:last-child { border-bottom: none; }
 .mobile-menu .mob-nav-links a:hover { color: var(--eid-ink-900); }
+.mobile-menu .mob-nav-links .mob-nav-about {
+  font-size: 15px;
+  color: var(--eid-ink-400, #7a8fa0);
+  letter-spacing: 0.01em;
+  padding: 12px 0;
+  display: block;
+  cursor: default;
+}
 
 /* Make header relative so the dropdown positions correctly */
 header.site-nav { position: relative; }
@@ -2088,7 +2096,7 @@ header.site-nav { position: relative; }
   /* .site-nav grid override removed — nav uses flex layout */
 
   /* Reduce hero padding */
-  .hero { padding: 36px var(--sp-4) 32px; background-size: 160%; background-position: right center; }
+  .hero { padding: 36px var(--sp-4) 32px; background-size: 160%; background-position: right top; }
   .trust { padding: 16px var(--sp-4) 12px; }
 
   /* Clients: stack title on top, strip full-width */
@@ -2214,7 +2222,7 @@ header.site-nav { position: relative; }
   .shell { padding: 0 var(--sp-3); }
 
   /* Zoom out hero further on small phones so the expert appears */
-  .hero { background-size: 140%; background-position: right center; }
+  .hero { background-size: 140%; background-position: right top; }
 
   /* 2-col footer → 1 col */
   .site-foot-inner { grid-template-columns: 1fr; }
@@ -2285,10 +2293,10 @@ header.site-nav { position: relative; }
         </div>
       </div>
       <div class="mob-nav-links">
+        <a href="#practices" role="menuitem">Practices</a>
         <a href="#framework" role="menuitem">Approach</a>
-        <a href="themes.html" role="menuitem">Themes</a>
         <a href="#evidence" role="menuitem">Engagements</a>
-        <a href="about.html" role="menuitem">About</a>
+        <span class="mob-nav-about" role="menuitem">About</span>
       </div>
     </div>
   </header>
@@ -2346,7 +2354,7 @@ header.site-nav { position: relative; }
 
 
 <!-- THEMES SHOVELER -->
-<section class="tsh-section" data-screen-label="03c Themes">
+<section class="tsh-section" id="practices" data-screen-label="03c Themes">
   <div class="tsh-wrap">
     <div class="tsh-head">
       <div>
