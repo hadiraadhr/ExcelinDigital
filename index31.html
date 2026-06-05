@@ -2084,32 +2084,55 @@ header.site-nav { position: relative; }
   .trust { padding: 16px var(--sp-4) 12px; }
 
   /* Clients: stack title on top, strip full-width */
-  .clients-inner { display: flex !important; flex-direction: column !important; gap: 16px !important; max-width: none !important; margin: 0 !important; padding: 24px 0 28px !important; }
-  .clients-inner .clients-label { margin: 0; padding-left: var(--sp-4); text-align: left !important; }
-  .clients-shoveler { width: 100%; }
+  /* Give the section the same left padding as .trust so labels align */
+  .clients-section { padding-left: var(--sp-4) !important; padding-right: 0 !important; }
+  .clients-inner { display: flex !important; flex-direction: column !important; gap: 16px !important; max-width: none !important; margin: 0 !important; padding: 24px 0 28px !important; width: 100% !important; box-sizing: border-box !important; }
+  .clients-inner .clients-label { margin: 0; padding-left: 0 !important; text-align: left !important; }
+  /* pull the marquee back to the section edge so it bleeds full-width */
+  .clients-shoveler { margin-left: calc(-1 * var(--sp-4)); width: calc(100% + var(--sp-4)); }
 
   /* Practice areas: show partial next card to hint scrollability */
   .tsh-card {
     flex: 0 0 85%;
   }
 
-  /* Approach strip: horizontally scrollable, full screen width per step */
+  /* Approach strip: one card per scroll, full viewport width */
   .frame-band .strip {
     display: flex !important;
-    overflow-x: auto;
+    overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
-    max-width: 100% !important;
-    width: 100%;
+    /* kill desktop border/gap/background that add phantom width */
+    border: none !important;
+    background: transparent !important;
+    gap: 0 !important;
+    /* strip must be exactly one viewport wide */
+    width: 100vw !important;
+    max-width: 100vw !important;
     padding: 0 !important;
-    gap: 1px;
+    margin: 0 !important;
+    box-sizing: border-box !important;
     scroll-snap-type: x mandatory;
+    scroll-padding: 0;
+    /* hide scroll bar */
+    scrollbar-width: none;
   }
+  .frame-band .strip::-webkit-scrollbar { display: none; }
   .frame-band .strip .step {
-    min-width: 100vw;
-    flex-shrink: 0;
+    /* each step occupies exactly one viewport width */
+    flex: 0 0 100vw;
+    width: 100vw;
+    max-width: 100vw;
+    min-width: unset;
     scroll-snap-align: start;
     box-sizing: border-box;
     position: relative;
+    /* visual separator between steps */
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+  .frame-band .strip .step .ti {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
   .frame-band .strip .step .ds {
     white-space: normal;
@@ -2184,8 +2207,9 @@ header.site-nav { position: relative; }
   .hero h1 { font-size: clamp(30px, 8.5vw, 50px); }
   .trust { padding: 14px var(--sp-3) 10px; gap: 6px; }
 
-  /* Align clients label with trust .ti at this breakpoint */
-  .clients-inner .clients-label { padding-left: var(--sp-3); }
+  /* Keep clients-section indent matching trust at this breakpoint */
+  .clients-section { padding-left: var(--sp-3) !important; }
+  .clients-shoveler { margin-left: calc(-1 * var(--sp-3)); width: calc(100% + var(--sp-3)); }
 
   /* CTA gap */
   .cta-band .inner { gap: var(--sp-6); }
