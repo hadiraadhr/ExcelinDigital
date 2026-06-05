@@ -2085,10 +2085,15 @@ header.site-nav { position: relative; }
 
   /* Clients: stack title on top, strip full-width */
   .clients-inner { display: flex !important; flex-direction: column !important; gap: 16px !important; max-width: none !important; margin: 0 !important; padding: 24px 0 28px !important; }
-  .clients-inner .clients-label { margin: 0 var(--sp-4); text-align: left !important; }
+  .clients-inner .clients-label { margin: 0; padding-left: var(--sp-4); text-align: left !important; }
   .clients-shoveler { width: 100%; }
 
-  /* Approach strip: horizontally scrollable, contained within page width */
+  /* Practice areas: show partial next card to hint scrollability */
+  .tsh-card {
+    flex: 0 0 85%;
+  }
+
+  /* Approach strip: horizontally scrollable, full screen width per step */
   .frame-band .strip {
     display: flex !important;
     overflow-x: auto;
@@ -2100,9 +2105,29 @@ header.site-nav { position: relative; }
     scroll-snap-type: x mandatory;
   }
   .frame-band .strip .step {
-    min-width: 75vw;
+    min-width: 100vw;
     flex-shrink: 0;
     scroll-snap-align: start;
+    box-sizing: border-box;
+    position: relative;
+  }
+  .frame-band .strip .step .ds {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .frame-band .strip .step::after {
+    content: "→";
+    position: absolute;
+    bottom: 28px;
+    right: 28px;
+    font-family: var(--eid-mono);
+    font-size: 16px;
+    color: rgba(255,255,255,0.4);
+    pointer-events: none;
+  }
+  .frame-band .strip .step:last-child::after {
+    display: none;
   }
 
   /* CTA band: stack intro and form vertically */
@@ -2158,6 +2183,9 @@ header.site-nav { position: relative; }
   .hero { padding: 28px var(--sp-3) 24px; }
   .hero h1 { font-size: clamp(30px, 8.5vw, 50px); }
   .trust { padding: 14px var(--sp-3) 10px; gap: 6px; }
+
+  /* Align clients label with trust .ti at this breakpoint */
+  .clients-inner .clients-label { padding-left: var(--sp-3); }
 
   /* CTA gap */
   .cta-band .inner { gap: var(--sp-6); }
