@@ -2074,14 +2074,19 @@ header.site-nav { position: relative; }
   .site-foot-inner { grid-template-columns: 1fr 1fr; gap: var(--sp-6); }
 
   /* Trust section sidebar → stack */
-  .trust { grid-template-columns: 1fr; }
+  .trust { grid-template-columns: 1fr; gap: 8px; }
 
   /* Fixed sidebar layouts → stack */
   /* .site-nav grid override removed — nav uses flex layout */
 
   /* Reduce hero padding */
   .hero { padding: 36px var(--sp-4) 32px; }
-  .trust { padding: 10px var(--sp-4); }
+  .trust { padding: 16px var(--sp-4) 12px; }
+
+  /* Clients: stack title on top, strip full-width */
+  .clients-inner { display: flex !important; flex-direction: column !important; gap: 16px !important; max-width: none !important; margin: 0 !important; padding: 24px 0 28px !important; }
+  .clients-inner .clients-label { margin: 0 var(--sp-4); }
+  .clients-shoveler { width: 100%; }
 
   /* Smaller hero title on mobile */
   .hero h1 { font-size: clamp(34px, 9vw, 60px); }
@@ -2126,7 +2131,7 @@ header.site-nav { position: relative; }
   .web-sec-head { padding: 40px var(--sp-3) 20px; }
   .hero { padding: 28px var(--sp-3) 24px; }
   .hero h1 { font-size: clamp(30px, 8.5vw, 50px); }
-  .trust { padding: 8px var(--sp-3); }
+  .trust { padding: 14px var(--sp-3) 10px; gap: 6px; }
 
   /* CTA gap */
   .cta-band .inner { gap: var(--sp-6); }
@@ -2226,8 +2231,8 @@ header.site-nav { position: relative; }
 
   <!-- CLIENTS -->
   <section class="clients-section" data-screen-label="03b Clients" style="background: var(--eid-ink-800);">
-    <div style="max-width:1240px; margin:0 auto; padding: 32px var(--sp-8); display:grid; grid-template-columns: 200px 1fr; gap:32px; align-items:center;">
-    <div style="font-family:var(--eid-mono); font-size:10px; letter-spacing:0.16em; color:rgba(255,255,255,0.5); text-transform:uppercase;">Clients we served</div>
+    <div class="clients-inner" style="max-width:1240px; margin:0 auto; padding: 32px var(--sp-8); display:grid; grid-template-columns: 200px 1fr; gap:32px; align-items:center;">
+    <div class="clients-label" style="font-family:var(--eid-mono); font-size:10px; letter-spacing:0.16em; color:rgba(255,255,255,0.5); text-transform:uppercase;">Clients we served</div>
     <div class="clients-shoveler">
       <div class="clients-belt">
         <div class="clients-belt-row"><span class="client-item">Saudi Telecom</span><span class="client-item">Al Rajhi Bank</span><span class="client-item">Omniyat Real Estate</span><span class="client-item">King Abdulaziz City for Science &amp; Technology</span><span class="client-item">Badir Incubator</span><span class="client-item">e&amp;</span><span class="client-item">Saudi Telecom</span><span class="client-item">Al Rajhi Bank</span><span class="client-item">Omniyat Real Estate</span><span class="client-item">King Abdulaziz City for Science &amp; Technology</span><span class="client-item">Shuaa Capital</span><span class="client-item">Badir Incubator</span><span class="client-item">e&amp;</span></div>
