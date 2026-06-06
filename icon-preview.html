@@ -2,67 +2,136 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Icon Preview – Practice Areas</title>
 <style>
-  body { background: #0a0a0a; color: #fff; font-family: 'Inter', sans-serif; padding: 48px; display: flex; flex-direction: column; gap: 24px; }
-  .card { display: flex; align-items: center; gap: 16px; background: #161616; border: 1px solid #2a2a2a; border-radius: 12px; padding: 20px 28px; max-width: 560px; }
-  .num { font-size: 13px; color: #666; font-weight: 600; letter-spacing: 0.08em; min-width: 24px; }
-  .icon { display: flex; align-items: center; color: #888; }
-  .icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-  .card--ai .icon svg { stroke: #f59e0b; }
-  .title { font-size: 15px; font-weight: 500; color: #e5e5e5; }
-  .label { font-size: 11px; color: #555; margin-top: 4px; }
+  body { font-family: -apple-system, sans-serif; background: #FBF7F0; padding: 40px; }
+  .grid { display: flex; gap: 24px; flex-wrap: wrap; }
+  .card {
+    background: #fff;
+    border: 1px solid #DCD5C4;
+    border-radius: 6px;
+    padding: 28px 24px;
+    width: 200px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .icon { display: flex; align-items: flex-end; }
+  svg { width: 22px; height: 22px; stroke: #002E5F; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+  .label { font-size: 13px; font-weight: 600; color: #0B0B0B; line-height: 1.3; }
+  .sub { font-size: 11px; color: #6B7480; }
+  h2 { font-size: 13px; color: #969FA7; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 24px; }
+  .section-label { font-size: 11px; color: #969FA7; text-transform: uppercase; letter-spacing: 0.1em; margin: 32px 0 12px; }
 </style>
 </head>
 <body>
+<h2>Delivery Promise — Icon Preview</h2>
+<div class="grid">
 
-<div class="card">
-  <div class="num">01</div>
-  <div class="icon">
-    <!-- Rocket / Growth -->
-    <svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+  <!-- 1. Senior-only delivery: person + checkmark -->
+  <div class="card">
+    <div class="icon">
+      <svg viewBox="0 0 24 24">
+        <circle cx="10" cy="7" r="3.5"/>
+        <path d="M3 21c0-3.87 3.13-7 7-7s7 3.13 7 7"/>
+        <circle cx="18" cy="17" r="3.5" stroke="#D97737" fill="#FBF7F0"/>
+        <path d="M16.2 17l1.3 1.4 2.3-2.3" stroke="#D97737" stroke-width="1.4"/>
+      </svg>
+    </div>
+    <div class="label">1. Senior-only delivery</div>
+    <div class="sub">Person + amber verified checkmark</div>
   </div>
-  <div>
-    <div class="title">Growth Acceleration &amp; Digital Go-to-Market</div>
-    <div class="label">Rocket icon</div>
+
+  <!-- 2. AI-native: sparkle (keep as-is) -->
+  <div class="card">
+    <div class="icon">
+      <svg viewBox="0 0 24 24">
+        <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+        <path d="M20 3v4"/><path d="M22 5h-4"/>
+        <path d="M4 17v2"/><path d="M5 18H3"/>
+      </svg>
+    </div>
+    <div class="label">2. AI-native, not AI-adjacent</div>
+    <div class="sub">Sparkle — unchanged</div>
   </div>
+
+  <!-- 3. Skills transfer: ascending bars (moved from senior-only) -->
+  <div class="card">
+    <div class="icon">
+      <svg viewBox="0 0 24 24">
+        <rect x="1"    y="18" width="2.5" height="4"  rx="0.4"/>
+        <rect x="5.5"  y="14" width="2.5" height="8"  rx="0.4"/>
+        <rect x="10"   y="10" width="2.5" height="12" rx="0.4"/>
+        <rect x="14.5" y="6"  width="2.5" height="16" rx="0.4"/>
+        <rect x="19"   y="2"  width="2.5" height="20" rx="0.4" stroke="#D97737"/>
+      </svg>
+    </div>
+    <div class="label">3. Skills transfer, in-context</div>
+    <div class="sub">Ascending bars (moved from #1)</div>
+  </div>
+
 </div>
 
-<div class="card">
-  <div class="num">02</div>
-  <div class="icon">
-    <!-- Layers / Product Building -->
-    <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-  </div>
-  <div>
-    <div class="title">Customer-Centric Product Building</div>
-    <div class="label">Layers / stack icon</div>
-  </div>
-</div>
+<div class="section-label">4. AI artifacts at exit — pick one:</div>
+<div class="grid">
 
-<div class="card">
-  <div class="num">03</div>
-  <div class="icon">
-    <!-- Funnel / Conversion -->
-    <svg viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+  <!-- 4a. Gear/cog -->
+  <div class="card">
+    <div class="icon">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+      </svg>
+    </div>
+    <div class="label">Option A: Gear/cog</div>
+    <div class="sub">Classic automation symbol</div>
   </div>
-  <div>
-    <div class="title">Digital Experience Design &amp; Conversion Optimization</div>
-    <div class="label">Funnel icon</div>
-  </div>
-</div>
 
-<div class="card card--ai">
-  <div class="num">04</div>
-  <div class="icon">
-    <!-- Sparkles / AI -->
-    <svg viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+  <!-- 4b. CPU chip -->
+  <div class="card">
+    <div class="icon">
+      <svg viewBox="0 0 24 24">
+        <rect x="7" y="7" width="10" height="10" rx="1"/>
+        <path d="M9 7V4M12 7V4M15 7V4"/>
+        <path d="M9 20v-3M12 20v-3M15 20v-3"/>
+        <path d="M7 9H4M7 12H4M7 15H4"/>
+        <path d="M20 9h-3M20 12h-3M20 15h-3"/>
+        <rect x="9" y="9" width="6" height="6" rx="0.5"/>
+      </svg>
+    </div>
+    <div class="label">Option B: CPU / chip</div>
+    <div class="sub">AI product / hardware feel</div>
   </div>
-  <div>
-    <div class="title">AI Acceleration in the Workplace</div>
-    <div class="label">Sparkles / AI icon (amber)</div>
-  </div>
-</div>
 
+  <!-- 4c. Branching workflow nodes -->
+  <div class="card">
+    <div class="icon">
+      <svg viewBox="0 0 24 24">
+        <circle cx="5" cy="12" r="2"/>
+        <path d="M7 12h3"/>
+        <path d="M10 12l3-4"/><path d="M10 12l3 4"/>
+        <circle cx="15" cy="8"  r="2" stroke="#D97737"/>
+        <circle cx="15" cy="16" r="2" stroke="#D97737"/>
+        <path d="M17 8h2M17 16h2" stroke="#D97737"/>
+      </svg>
+    </div>
+    <div class="label">Option C: Workflow / branching</div>
+    <div class="sub">Automation pipeline feel</div>
+  </div>
+
+  <!-- 4d. Bot/robot face -->
+  <div class="card">
+    <div class="icon">
+      <svg viewBox="0 0 24 24">
+        <rect x="3" y="8" width="18" height="12" rx="2"/>
+        <path d="M12 8V5"/><circle cx="12" cy="4" r="1" fill="#002E5F"/>
+        <circle cx="8.5"  cy="13" r="1.5" fill="#002E5F"/>
+        <circle cx="15.5" cy="13" r="1.5" fill="#002E5F"/>
+        <path d="M9 17.5c0-1.65 1.34-3 3-3s3 1.35 3 3" stroke="#D97737"/>
+        <path d="M3 13h-1M22 13h-1" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="label">Option D: Bot / agent face</div>
+    <div class="sub">AI agent / product character</div>
+  </div>
+
+</div>
 </body>
 </html>
