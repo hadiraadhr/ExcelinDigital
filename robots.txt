@@ -9,3 +9,9 @@ Allow: /
 
 User-agent: PerplexityBot
 Allow: /
+
+User-agent: NotebooklmBot
+Allow: /
+
+User-agent: GeminiBot
+Allow: /
