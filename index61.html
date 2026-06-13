@@ -1798,12 +1798,12 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
       border-color: var(--eid-ink-600);
     }
     .approach-station--ignition .approach-node { background: var(--eid-ink-800); border-color: var(--eid-ink-800); }
-    .approach-station--exec     .approach-node { background: var(--eid-amber-100); border-color: var(--eid-amber-500); }
+    .approach-station--exec     .approach-node { background: var(--eid-n-100); border-color: var(--eid-n-300); opacity: 0.55; cursor: default; }
     .approach-node-num { font-family: var(--eid-mono); font-size: 9px; font-weight: 600; color: var(--eid-amber-600); letter-spacing: 0.08em; }
     .approach-station--ignition .approach-node-num { color: var(--eid-amber-400, #e8a46e); }
     .approach-node svg { color: var(--eid-ink-600); }
     .approach-station--ignition .approach-node svg { color: var(--eid-ink-300); }
-    .approach-station--exec     .approach-node svg { color: var(--eid-amber-700); }
+    .approach-station--exec     .approach-node svg { color: var(--eid-n-400); }
     .approach-labels { text-align: center; padding: 16px 20px 0; display: flex; flex-direction: column; align-items: center; gap: 4px; }
     .approach-badge { font-family: var(--eid-sans); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--eid-paper-700); }
     .approach-title { font-family: var(--eid-serif); font-size: 20px; font-weight: 400; color: var(--eid-ink-900); letter-spacing: -0.01em; }
@@ -1824,8 +1824,10 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
     .approach-milestone-label small { display: block; font-family: var(--eid-mono); font-size: 8px; color: var(--eid-paper-700); white-space: nowrap; margin-top: 2px; opacity: 0.8; }
     .approach-arrow { position: absolute; top: 183px; left: calc(66.66% - 10px); z-index: 4; color: var(--eid-ink-400); font-size: 16px; line-height: 1; }
     @media (max-width: 860px) {
-      .approach-stations { grid-template-columns: 1fr; gap: 32px; }
+      .approach-stations { grid-template-columns: 1fr; gap: 0; }
       .approach-stations::before, .approach-milestone, .approach-arrow { display: none; }
+      .approach-station { padding-bottom: 32px; }
+      .approach-station + .approach-station { border-top: 1px solid var(--eid-rule); padding-top: 32px; }
     }
 </style>
   <style data-stripped="">
@@ -2465,7 +2467,7 @@ header.site-nav { position: relative; }
     </a>
     <nav>
       <a href="#practices">Practices</a>
-      <a href="#framework">Approach</a>
+      <a href="#approach">Approach</a>
       <a href="#evidence">Engagements</a>
       <a href="about.html">About</a>
     </nav>
@@ -2487,7 +2489,7 @@ header.site-nav { position: relative; }
       </div>
       <div class="mob-nav-links">
         <a href="#practices" role="menuitem">Practices</a>
-        <a href="#framework" role="menuitem">Approach</a>
+        <a href="#approach" role="menuitem">Approach</a>
         <a href="#evidence" role="menuitem">Engagements</a>
         <a href="about.html" class="mob-nav-about" role="menuitem">About</a>
       </div>
@@ -2500,7 +2502,7 @@ header.site-nav { position: relative; }
     <div class="lead">
       <p class="sub">Senior domain experts, empowered by purpose-built <span class="ai-tag">AI</span> agents, step in to accelerate execution - from prioritization to scaled delivery </p>
       <div class="ctas">
-        <a class="btn ghost" href="#framework">Read our approach ↗</a>
+        <a class="btn ghost" href="#approach">Read our approach ↗</a>
         <a class="btn primary" href="#workshop">Book Executive Session →</a>
        
       </div>
@@ -2699,7 +2701,8 @@ header.site-nav { position: relative; }
             <div class="approach-node">
               <span class="approach-node-num">03</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
               </svg>
             </div>
           </div>
@@ -2897,7 +2900,7 @@ header.site-nav { position: relative; }
         <h5>How we work</h5>
         <ul>
           <li><a href="#practices">Practices</a></li>
-          <li><a href="#framework">Approach</a></li>
+          <li><a href="#approach">Approach</a></li>
           <li><a href="#pillars">Why Us</a></li>
         <!--  <li><a href="#">Practices</a></li>  -->
         </ul>
