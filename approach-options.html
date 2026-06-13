@@ -33,7 +33,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: var(--sans);
-      background: #d6d2ca;
+      background: #c8c4bc;
       color: var(--ink-800);
     }
 
@@ -42,23 +42,15 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      padding: 32px 64px 20px;
+      padding: 36px 64px 20px;
       font-family: var(--mono);
       font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #6b6660;
+      color: #5a5650;
     }
-    .option-label strong {
-      color: var(--ink-800);
-      font-size: 13px;
-    }
-    .option-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: #b0aba3;
-    }
+    .option-label strong { color: var(--ink-800); font-size: 13px; }
+    .option-label::after { content: ''; flex: 1; height: 1px; background: #a8a49c; }
 
     /* shared eyebrow */
     .eyebrow {
@@ -73,36 +65,20 @@
       gap: 10px;
       margin-bottom: 14px;
     }
-    .ai-signal {
-      display: inline-flex;
-      align-items: flex-end;
-      gap: 2px;
-      height: 11px;
-      color: var(--amber-600);
-    }
-    .ai-signal i {
-      display: block;
-      width: 2.5px;
-      border-radius: 1px;
-      background: currentColor;
-      animation: pulse 1.4s ease-in-out infinite;
-    }
+    .ai-signal { display: inline-flex; align-items: flex-end; gap: 2px; height: 11px; color: var(--amber-600); }
+    .ai-signal i { display: block; width: 2.5px; border-radius: 1px; background: currentColor; animation: pulse 1.4s ease-in-out infinite; }
     .ai-signal i:nth-child(1) { height: 4px;  animation-delay: 0s; }
     .ai-signal i:nth-child(2) { height: 7px;  animation-delay: 0.15s; }
     .ai-signal i:nth-child(3) { height: 11px; animation-delay: 0.30s; }
     .ai-signal i:nth-child(4) { height: 8px;  animation-delay: 0.45s; }
     .ai-signal i:nth-child(5) { height: 5px;  animation-delay: 0.60s; }
-    @keyframes pulse {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 1; }
-    }
+    @keyframes pulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
 
 
-    /* ═══════════════════════════════════════════════════════
-       OPTION A — FLOW RAIL
-       Three station-nodes on a horizontal rail.
-       Milestone diamond sits on the rail between S1 and S2.
-    ═══════════════════════════════════════════════════════ */
+    /* ═══════════════════════════════════════════════
+       OPTION A — IMAGE PANELS ABOVE RAIL NODES
+       Photo strip at top, nodes + labels below.
+    ═══════════════════════════════════════════════ */
 
     .option-a {
       background: var(--paper-50);
@@ -110,12 +86,7 @@
       max-width: 1200px;
       margin: 0 auto 6px;
     }
-
-    .oa-head {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 64px;
-    }
+    .oa-head { margin-bottom: 56px; }
     .oa-head h2 {
       font-family: var(--serif);
       font-weight: 400;
@@ -126,159 +97,179 @@
     }
     .oa-head h2 em { font-style: italic; color: var(--ink-700); }
 
-    /* Rail container */
-    .oa-rail {
+    /* Three-column layout for the stations */
+    .oa-stations {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
       position: relative;
-      display: flex;
-      align-items: flex-start;
-      gap: 0;
     }
 
-    /* The horizontal spine line */
-    .oa-rail::before {
+    /* Horizontal connector line behind the image panels */
+    .oa-stations::before {
       content: '';
       position: absolute;
-      top: 36px; /* aligns with centre of node circles */
-      left: 36px;
-      right: 36px;
+      top: 188px; /* centre of the node circles */
+      left: calc(16.66% + 20px);
+      right: calc(16.66% + 20px);
       height: 1px;
       background: var(--ink-300);
-      z-index: 0;
+      z-index: 2;
+      pointer-events: none;
     }
 
-    /* Each station */
     .oa-station {
-      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0;
-      position: relative;
-      z-index: 1;
-      text-align: center;
       text-decoration: none;
       color: inherit;
+      position: relative;
     }
 
-    /* Circle node */
+    /* Photo panel */
+    .oa-photo {
+      width: 100%;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 3px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+    /* Gradient overlay fading image into background */
+    .oa-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(0,20,40,0.18) 0%,
+        rgba(0,20,40,0.05) 50%,
+        rgba(251,247,240,0.85) 100%);
+    }
+
+    /* Fallback colours if image fails */
+    .oa-station--discovery .oa-photo { background-color: #3a5a7a; }
+    .oa-station--ignition  .oa-photo { background-color: var(--ink-800); }
+    .oa-station--exec      .oa-photo { background-color: #7a5a3a; }
+
+    /* Node circle sitting on the photo bottom edge */
+    .oa-node-wrap {
+      position: relative;
+      z-index: 3;
+      margin-top: -28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .oa-node {
-      width: 72px;
-      height: 72px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
-      background: var(--white);
-      border: 1.5px solid var(--ink-300);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 2px;
-      position: relative;
-      transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
-      margin-bottom: 20px;
+      border: 2px solid var(--ink-300);
+      background: var(--paper-50);
+      transition: transform 0.18s, box-shadow 0.18s;
     }
-    .oa-station.clickable .oa-node:hover {
+    .oa-station.clickable:hover .oa-node {
+      transform: scale(1.08);
+      box-shadow: 0 4px 16px rgba(0,46,95,0.15);
       border-color: var(--ink-600);
-      box-shadow: 0 4px 20px rgba(0,46,95,0.13);
-      transform: translateY(-3px);
     }
-    .oa-node-num {
-      font-family: var(--mono);
-      font-size: 10px;
-      font-weight: 600;
-      color: var(--amber-600);
-      letter-spacing: 0.06em;
-    }
-    .oa-node-icon {
-      width: 22px;
-      height: 22px;
-      color: var(--ink-700);
-    }
-
-    /* Station 1 — lighter node */
-    .oa-station--optional .oa-node {
-      background: var(--paper-100);
-      border-color: var(--ink-200);
-    }
-    /* Station 2 — dark/core node */
-    .oa-station--core .oa-node {
+    .oa-station--ignition .oa-node {
       background: var(--ink-800);
       border-color: var(--ink-800);
     }
-    .oa-station--core .oa-node .oa-node-icon { color: var(--ink-400); }
-    .oa-station--core .oa-node .oa-node-num { color: var(--amber-500); }
-
-    /* Station 3 — amber accent node */
     .oa-station--exec .oa-node {
       background: var(--amber-100);
-      border-color: var(--amber-200);
+      border-color: var(--amber-500);
     }
-    .oa-station--exec .oa-node .oa-node-icon { color: var(--amber-700); }
+    .oa-node-num {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--amber-600);
+      letter-spacing: 0.08em;
+    }
+    .oa-station--ignition .oa-node-num { color: var(--amber-400, #e8a46e); }
+    .oa-node svg { color: var(--ink-600); }
+    .oa-station--ignition .oa-node svg { color: var(--ink-300); }
+    .oa-station--exec .oa-node svg { color: var(--amber-700); }
 
-    /* Labels below node */
-    .oa-station-badge {
+    /* Labels */
+    .oa-labels {
+      text-align: center;
+      padding: 16px 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .oa-badge {
       font-family: var(--sans);
       font-size: 10px;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--paper-700);
-      margin-bottom: 6px;
     }
-    .oa-station-title {
+    .oa-title {
       font-family: var(--serif);
-      font-size: 19px;
+      font-size: 20px;
       font-weight: 400;
       color: var(--ink-900);
       letter-spacing: -0.01em;
-      margin-bottom: 6px;
     }
-    .oa-station-sub {
-      font-family: var(--sans);
+    .oa-phrase {
       font-size: 12px;
       color: var(--paper-700);
-      max-width: 160px;
       line-height: 1.5;
+      max-width: 200px;
     }
-    .oa-station-cta {
-      margin-top: 10px;
+    .oa-cta {
+      margin-top: 8px;
       font-family: var(--sans);
       font-size: 11px;
       font-weight: 500;
       color: var(--ink-600);
-      letter-spacing: 0.04em;
       display: inline-flex;
       align-items: center;
       gap: 4px;
+      transition: color 0.15s;
     }
-    .oa-station.clickable:hover .oa-station-cta { color: var(--amber-600); }
+    .oa-station.clickable:hover .oa-cta { color: var(--amber-600); }
 
-    /* Milestone diamond between S1 and S2 */
-    .oa-milestone {
-      position: relative;
-      z-index: 2;
+    /* Milestone between stations 1 and 2 */
+    .oa-milestone-bar {
+      position: absolute;
+      top: 188px; /* same as ::before line */
+      left: calc(33.33% - 52px);
+      z-index: 4;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 24px; /* sits on the rail */
-      flex-shrink: 0;
-      width: 80px;
-      margin: 0 -12px;
+      transform: translateY(-50%);
     }
     .oa-diamond {
-      width: 26px;
-      height: 26px;
+      width: 20px;
+      height: 20px;
       background: var(--amber-100);
       border: 1.5px solid var(--amber-600);
       transform: rotate(45deg);
     }
     .oa-milestone-label {
-      margin-top: 20px;
+      margin-top: 14px;
       text-align: center;
     }
     .oa-milestone-label span {
       display: block;
       font-family: var(--sans);
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -288,32 +279,29 @@
     .oa-milestone-label small {
       display: block;
       font-family: var(--mono);
-      font-size: 9px;
+      font-size: 8px;
       color: var(--paper-700);
       white-space: nowrap;
-      margin-top: 3px;
+      margin-top: 2px;
       opacity: 0.8;
     }
 
-    /* simple right arrow between S2 and S3 */
-    .oa-arrow {
-      display: flex;
-      align-items: flex-start;
-      padding-top: 30px;
-      color: var(--ink-300);
-      font-size: 18px;
-      flex-shrink: 0;
-      width: 32px;
-      justify-content: center;
+    /* Right arrow between stations 2 and 3 */
+    .oa-arrow-bar {
+      position: absolute;
+      top: 185px;
+      left: calc(66.66% - 10px);
+      z-index: 4;
+      color: var(--ink-400);
+      font-size: 16px;
+      line-height: 1;
     }
 
 
-
-    /* ═══════════════════════════════════════════════════════
-       OPTION B — BOLD CARD BLOCKS
-       Three cards, visually weighted differently.
-       S2 (core) is the heaviest. Milestone is a full-width gate.
-    ═══════════════════════════════════════════════════════ */
+    /* ═══════════════════════════════════════════════
+       OPTION B — FULL-BLEED IMAGE CARDS
+       Background photo per card, heavy overlay, white text.
+    ═══════════════════════════════════════════════ */
 
     .option-b {
       background: var(--paper-50);
@@ -321,12 +309,7 @@
       max-width: 1200px;
       margin: 0 auto 6px;
     }
-
-    .ob-head {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 56px;
-    }
+    .ob-head { margin-bottom: 48px; }
     .ob-head h2 {
       font-family: var(--serif);
       font-weight: 400;
@@ -337,72 +320,88 @@
     }
     .ob-head h2 em { font-style: italic; color: var(--ink-700); }
 
-    /* Three-column grid */
     .ob-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 2px;
-      background: var(--rule);
-      border: 1px solid var(--rule);
-      border-radius: 6px;
+      gap: 3px;
+      border-radius: 5px;
       overflow: hidden;
     }
 
     .ob-card {
+      position: relative;
+      min-height: 400px;
       display: flex;
       flex-direction: column;
-      padding: 36px 32px 32px;
-      position: relative;
-      min-height: 320px;
+      justify-content: flex-end;
       text-decoration: none;
-      color: inherit;
-      transition: filter 0.18s;
+      overflow: hidden;
+      color: #fff;
     }
 
-    /* Card backgrounds */
-    .ob-card--optional  { background: var(--paper-100); }
-    .ob-card--core      { background: var(--ink-800); }
-    .ob-card--exec      { background: var(--amber-100); }
-
-    .ob-card.clickable:hover { filter: brightness(1.04); }
-    .ob-card.clickable:hover .ob-cta { opacity: 1; }
-
-    /* Giant background number */
-    .ob-bg-num {
+    /* Background image layer */
+    .ob-bg {
       position: absolute;
-      bottom: -16px;
-      right: 16px;
-      font-family: var(--mono);
-      font-size: 120px;
-      font-weight: 600;
-      line-height: 1;
-      letter-spacing: -0.04em;
-      pointer-events: none;
-      user-select: none;
+      inset: 0;
+      background-size: cover;
+      background-position: center top;
+      transition: transform 0.5s ease;
     }
-    .ob-card--optional  .ob-bg-num { color: var(--paper-200); }
-    .ob-card--core      .ob-bg-num { color: rgba(255,255,255,0.06); }
-    .ob-card--exec      .ob-bg-num { color: var(--amber-200); }
+    .ob-card.clickable:hover .ob-bg { transform: scale(1.04); }
 
-    /* Card content */
+    /* Dark gradient overlay — different tones per card */
+    .ob-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+    .ob-card--discovery .ob-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 20, 50, 0.20) 0%,
+        rgba(0, 20, 50, 0.55) 55%,
+        rgba(0, 20, 50, 0.88) 100%
+      );
+    }
+    .ob-card--ignition .ob-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 10, 30, 0.30) 0%,
+        rgba(0, 10, 30, 0.65) 50%,
+        rgba(0, 10, 30, 0.95) 100%
+      );
+    }
+    .ob-card--exec .ob-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(80, 30, 0, 0.25) 0%,
+        rgba(80, 30, 0, 0.60) 55%,
+        rgba(80, 30, 0, 0.90) 100%
+      );
+    }
+
+    /* Fallback bg colours */
+    .ob-card--discovery { background-color: #2a4a6a; }
+    .ob-card--ignition  { background-color: var(--ink-900); }
+    .ob-card--exec      { background-color: #5a3015; }
+
+    /* Content sits above overlay */
+    .ob-content {
+      position: relative;
+      z-index: 2;
+      padding: 32px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     .ob-num {
       font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--amber-600);
-      letter-spacing: 0.08em;
-      margin-bottom: 24px;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--amber-500);
+      letter-spacing: 0.1em;
     }
-    .ob-card--core .ob-num { color: var(--amber-400, #e8a46e); }
-
-    .ob-icon {
-      width: 32px;
-      height: 32px;
-      margin-bottom: 20px;
-      color: var(--ink-600);
-    }
-    .ob-card--core .ob-icon { color: var(--ink-300); }
-    .ob-card--exec .ob-icon { color: var(--amber-700); }
 
     .ob-badge {
       display: inline-block;
@@ -413,12 +412,11 @@
       text-transform: uppercase;
       padding: 3px 10px;
       border-radius: 999px;
-      margin-bottom: 12px;
       align-self: flex-start;
     }
-    .ob-card--optional .ob-badge { background: var(--paper-200); color: var(--paper-700); }
-    .ob-card--core     .ob-badge { background: rgba(255,255,255,0.12); color: var(--ink-300); }
-    .ob-card--exec     .ob-badge { background: var(--amber-200); color: var(--amber-700); }
+    .ob-card--discovery .ob-badge { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); }
+    .ob-card--ignition  .ob-badge { background: rgba(217,119,55,0.25); color: var(--amber-400, #e8a46e); border: 1px solid rgba(217,119,55,0.4); }
+    .ob-card--exec      .ob-badge { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); }
 
     .ob-title {
       font-family: var(--serif);
@@ -426,73 +424,62 @@
       font-weight: 400;
       line-height: 1.15;
       letter-spacing: -0.015em;
-      color: var(--ink-900);
-      flex: 1;
-      position: relative;
-      z-index: 1;
+      color: #ffffff;
     }
-    .ob-card--core .ob-title { color: #ffffff; }
 
     .ob-phrase {
       font-family: var(--sans);
       font-size: 12px;
-      color: var(--paper-700);
-      line-height: 1.5;
-      margin-top: 10px;
-      position: relative;
-      z-index: 1;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.55;
     }
-    .ob-card--core .ob-phrase { color: var(--ink-300); }
-    .ob-card--exec .ob-phrase { color: var(--amber-700); }
 
     .ob-cta {
-      margin-top: 20px;
+      margin-top: 4px;
       font-family: var(--sans);
       font-size: 12px;
       font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--ink-700);
+      color: rgba(255,255,255,0.55);
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      opacity: 0.6;
-      transition: opacity 0.15s;
-      position: relative;
-      z-index: 1;
+      transition: color 0.15s;
+      letter-spacing: 0.03em;
     }
-    .ob-card--core .ob-cta { color: var(--ink-300); }
+    .ob-card.clickable:hover .ob-cta { color: var(--amber-400, #e8a46e); }
 
-    /* Milestone gate — full-width divider between card 1 and 2 */
-    .ob-milestone-gate {
-      position: absolute;
-      /* We'll use a pseudo-overlay approach — actually it's between grid columns.
-         We'll render it as an absolutely positioned layer over the grid gap. */
-    }
-
-    /* Actually render milestone as a visual "notch" at the top of card 2 */
-    .ob-card--core::before {
-      content: '';
+    /* Milestone gate on top of Ignition card */
+    .ob-milestone {
       position: absolute;
       top: 0; left: 0; right: 0;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      pointer-events: none;
+    }
+    .ob-milestone-bar {
+      width: 100%;
       height: 3px;
       background: var(--amber-600);
     }
-    .ob-card--core .ob-milestone-top {
+    .ob-milestone-tag {
+      margin-top: 10px;
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
+      gap: 6px;
+      background: rgba(0,10,30,0.7);
+      padding: 4px 10px 4px 8px;
+      border-radius: 2px;
     }
-    .ob-milestone-diamond {
-      width: 10px;
-      height: 10px;
+    .ob-m-diamond {
+      width: 8px;
+      height: 8px;
       background: var(--amber-500);
       transform: rotate(45deg);
       flex-shrink: 0;
     }
-    .ob-milestone-text {
+    .ob-m-label {
       font-family: var(--mono);
       font-size: 9px;
       letter-spacing: 0.12em;
@@ -501,24 +488,31 @@
       white-space: nowrap;
     }
 
-
+    /* Photo credit strip */
+    .photo-credit {
+      padding: 10px 64px;
+      font-family: var(--mono);
+      font-size: 9px;
+      color: #7a7570;
+      letter-spacing: 0.06em;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .photo-credit a { color: #7a7570; text-decoration: underline; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
       .option-a, .option-b { padding: 48px 32px 56px; }
       .option-label { padding: 24px 32px 16px; }
+      .photo-credit { padding: 8px 32px; }
 
-      /* Option A mobile */
-      .oa-rail { flex-direction: column; align-items: center; gap: 32px; }
-      .oa-rail::before { display: none; }
-      .oa-milestone { flex-direction: row; width: auto; padding: 0; gap: 12px; }
-      .oa-milestone-label { margin-top: 0; text-align: left; }
-      .oa-arrow { padding-top: 0; }
+      .oa-stations { grid-template-columns: 1fr; gap: 32px; }
+      .oa-stations::before { display: none; }
+      .oa-milestone-bar, .oa-arrow-bar { display: none; }
 
-      /* Option B mobile */
       .ob-grid { grid-template-columns: 1fr; }
+      .ob-card { min-height: 300px; }
     }
-
     @media (max-width: 540px) {
       .option-a, .option-b { padding: 40px 20px 48px; }
     }
@@ -526,10 +520,10 @@
 </head>
 <body>
 
-<!-- ════════════════════════════════════════
-     OPTION A — FLOW RAIL
-════════════════════════════════════════ -->
-<div class="option-label"><strong>Option A</strong> — Flow Rail &nbsp;·&nbsp; nodes on a timeline</div>
+<!-- ════════════════════════════════════
+     OPTION A — IMAGE PANELS + RAIL
+════════════════════════════════════ -->
+<div class="option-label"><strong>Option A</strong> — Photo panels above rail nodes</div>
 
 <section class="option-a">
   <div class="oa-head">
@@ -540,24 +534,66 @@
     <h2>From first conversation<br>to full <em>execution.</em></h2>
   </div>
 
-  <div class="oa-rail">
+  <div class="oa-stations">
 
-    <!-- Station 1 — Discovery Workshop -->
-    <a class="oa-station oa-station--optional clickable" href="#workshop">
-      <div class="oa-node">
-        <span class="oa-node-num">01</span>
-        <svg class="oa-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/>
-        </svg>
+    <!-- Stage 1 — Discovery Workshop -->
+    <a class="oa-station oa-station--discovery clickable" href="#workshop">
+      <div class="oa-photo" style="background-image: url('https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1');"></div>
+      <div class="oa-node-wrap">
+        <div class="oa-node">
+          <span class="oa-node-num">01</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </div>
       </div>
-      <span class="oa-station-badge">Optional</span>
-      <span class="oa-station-title">Discovery Workshop</span>
-      <span class="oa-station-sub">2-hour leadership scan. One-page diagnostic.</span>
-      <span class="oa-station-cta">See details ↓</span>
+      <div class="oa-labels">
+        <span class="oa-badge">Optional · Complimentary</span>
+        <span class="oa-title">Discovery Workshop</span>
+        <span class="oa-phrase">2-hour leadership scan. One-page diagnostic.</span>
+        <span class="oa-cta">See details ↓</span>
+      </div>
     </a>
 
-    <!-- Milestone diamond -->
-    <div class="oa-milestone">
+    <!-- Stage 2 — Ignition Module -->
+    <a class="oa-station oa-station--ignition clickable" href="#framework">
+      <div class="oa-photo" style="background-image: url('https://images.pexels.com/photos/5324903/pexels-photo-5324903.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1');"></div>
+      <div class="oa-node-wrap">
+        <div class="oa-node">
+          <span class="oa-node-num">02</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+      </div>
+      <div class="oa-labels">
+        <span class="oa-badge">Core Engagement</span>
+        <span class="oa-title">Ignition Module</span>
+        <span class="oa-phrase">5 expert-led stages. AI tools handed over at exit.</span>
+        <span class="oa-cta">How it runs ↓</span>
+      </div>
+    </a>
+
+    <!-- Stage 3 — Execution Support -->
+    <div class="oa-station oa-station--exec">
+      <div class="oa-photo" style="background-image: url('https://images.pexels.com/photos/7693107/pexels-photo-7693107.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&dpr=1');"></div>
+      <div class="oa-node-wrap">
+        <div class="oa-node">
+          <span class="oa-node-num">03</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </div>
+      <div class="oa-labels">
+        <span class="oa-badge">Post-module</span>
+        <span class="oa-title">Execution Support</span>
+        <span class="oa-phrase">From pilots to full AI deployment at scale.</span>
+      </div>
+    </div>
+
+    <!-- Milestone diamond on the rail -->
+    <div class="oa-milestone-bar">
       <div class="oa-diamond"></div>
       <div class="oa-milestone-label">
         <span>Scope Alignment</span>
@@ -565,44 +601,21 @@
       </div>
     </div>
 
-    <!-- Station 2 — Ignition Module -->
-    <a class="oa-station oa-station--core clickable" href="#framework">
-      <div class="oa-node">
-        <span class="oa-node-num">02</span>
-        <svg class="oa-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>
-        </svg>
-      </div>
-      <span class="oa-station-badge">Core</span>
-      <span class="oa-station-title">Ignition Module</span>
-      <span class="oa-station-sub">5 expert-led stages. AI tools handed over at exit.</span>
-      <span class="oa-station-cta">How it runs ↓</span>
-    </a>
-
-    <!-- Arrow -->
-    <div class="oa-arrow">›</div>
-
-    <!-- Station 3 — Execution Support -->
-    <div class="oa-station oa-station--exec">
-      <div class="oa-node">
-        <span class="oa-node-num">03</span>
-        <svg class="oa-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2L8.5 8.5 2 9.27l5 4.87L5.82 21 12 17.77 18.18 21l-1.18-6.86L22 9.27l-6.5-.77L12 2z"/>
-        </svg>
-      </div>
-      <span class="oa-station-badge">Post-module</span>
-      <span class="oa-station-title">Execution Support</span>
-      <span class="oa-station-sub">From pilots to full AI deployment at scale.</span>
-    </div>
+    <!-- Arrow between S2 and S3 -->
+    <div class="oa-arrow-bar">›</div>
 
   </div>
 </section>
 
+<div class="photo-credit">
+  Photos via Pexels (free for commercial use) — pexels.com/photo/3184287 · pexels.com/photo/5324903 · pexels.com/photo/7693107
+</div>
 
-<!-- ════════════════════════════════════════
-     OPTION B — BOLD CARD BLOCKS
-════════════════════════════════════════ -->
-<div class="option-label"><strong>Option B</strong> — Bold Cards &nbsp;·&nbsp; weighted by role</div>
+
+<!-- ════════════════════════════════════
+     OPTION B — FULL-BLEED IMAGE CARDS
+════════════════════════════════════ -->
+<div class="option-label" style="margin-top: 32px;"><strong>Option B</strong> — Full-bleed background images per card</div>
 
 <section class="option-b">
   <div class="ob-head">
@@ -616,49 +629,57 @@
   <div class="ob-grid">
 
     <!-- Card 1 — Discovery Workshop -->
-    <a class="ob-card ob-card--optional clickable" href="#workshop">
-      <div class="ob-bg-num">01</div>
-      <span class="ob-num">01 ·</span>
-      <svg class="ob-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/>
-      </svg>
-      <span class="ob-badge">Optional · Complimentary</span>
-      <span class="ob-title">Discovery<br>Workshop</span>
-      <span class="ob-phrase">2-hour leadership scan → one-page diagnostic</span>
-      <span class="ob-cta">See details ↓</span>
+    <a class="ob-card ob-card--discovery clickable" href="#workshop">
+      <div class="ob-bg" style="background-image: url('https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&dpr=1');"></div>
+      <div class="ob-overlay"></div>
+      <div class="ob-content">
+        <span class="ob-num">01 ·</span>
+        <span class="ob-badge">Optional · Complimentary</span>
+        <span class="ob-title">Discovery<br>Workshop</span>
+        <span class="ob-phrase">2-hour leadership scan → one-page diagnostic</span>
+        <span class="ob-cta">See details ↓</span>
+      </div>
     </a>
 
-    <!-- Card 2 — Ignition Module (core, dark) -->
-    <a class="ob-card ob-card--core clickable" href="#framework">
-      <div class="ob-bg-num">02</div>
-      <div class="ob-milestone-top">
-        <div class="ob-milestone-diamond"></div>
-        <span class="ob-milestone-text">Scope Alignment</span>
+    <!-- Card 2 — Ignition Module (with milestone gate) -->
+    <a class="ob-card ob-card--ignition clickable" href="#framework">
+      <div class="ob-bg" style="background-image: url('https://images.pexels.com/photos/5324903/pexels-photo-5324903.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&dpr=1');"></div>
+      <div class="ob-overlay"></div>
+      <!-- Milestone tag at top -->
+      <div class="ob-milestone">
+        <div class="ob-milestone-bar"></div>
+        <div class="ob-milestone-tag">
+          <div class="ob-m-diamond"></div>
+          <span class="ob-m-label">Scope Alignment</span>
+        </div>
       </div>
-      <span class="ob-num">02 ·</span>
-      <svg class="ob-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>
-      </svg>
-      <span class="ob-badge">Core Engagement</span>
-      <span class="ob-title">Ignition<br>Module</span>
-      <span class="ob-phrase">5 expert-led stages · AI tools handed over at exit</span>
-      <span class="ob-cta">How it runs ↓</span>
+      <div class="ob-content">
+        <span class="ob-num">02 ·</span>
+        <span class="ob-badge">Core Engagement</span>
+        <span class="ob-title">Ignition<br>Module</span>
+        <span class="ob-phrase">5 expert-led stages · AI tools handed over at exit</span>
+        <span class="ob-cta">How it runs ↓</span>
+      </div>
     </a>
 
     <!-- Card 3 — Execution Support -->
     <div class="ob-card ob-card--exec">
-      <div class="ob-bg-num">03</div>
-      <span class="ob-num">03 ·</span>
-      <svg class="ob-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
-      <span class="ob-badge">Post-module</span>
-      <span class="ob-title">Execution<br>Support</span>
-      <span class="ob-phrase">From pilots to full AI deployment at scale</span>
+      <div class="ob-bg" style="background-image: url('https://images.pexels.com/photos/7693107/pexels-photo-7693107.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&dpr=1');"></div>
+      <div class="ob-overlay"></div>
+      <div class="ob-content">
+        <span class="ob-num">03 ·</span>
+        <span class="ob-badge">Post-module</span>
+        <span class="ob-title">Execution<br>Support</span>
+        <span class="ob-phrase">From pilots to full AI deployment at scale</span>
+      </div>
     </div>
 
   </div>
 </section>
+
+<div class="photo-credit" style="margin-bottom: 48px;">
+  Photos via Pexels (free for commercial use) — pexels.com/photo/3184287 · pexels.com/photo/5324903 · pexels.com/photo/7693107
+</div>
 
 </body>
 </html>
