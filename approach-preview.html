@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Approach — Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Source+Serif+4:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --eid-ink-900: #001A36;
+      --eid-ink-800: #002E5F;
+      --eid-ink-700: #0A437F;
+      --eid-ink-600: #066BB0;
+      --eid-ink-500: #2E89C7;
+      --eid-ink-400: #71B9E4;
+      --eid-ink-300: #B6C8DE;
+      --eid-ink-200: #D8E4EE;
+      --eid-ink-100: #EAF1F8;
+      --eid-amber-700: #B86317;
+      --eid-amber-600: #D97737;
+      --eid-amber-500: #E88A2C;
+      --eid-amber-200: #F6DCC2;
+      --eid-amber-100: #FBEEDF;
+      --eid-paper-50:  #FBF7F0;
+      --eid-paper-100: #F3ECDD;
+      --eid-paper-200: #EBDDC3;
+      --eid-paper-300: #BDB59D;
+      --eid-paper-700: #585753;
+      --eid-n-0:   #FFFFFF;
+      --eid-n-200: #E5E9EE;
+      --eid-n-400: #969FA7;
+      --eid-n-500: #6B7480;
+      --eid-n-800: #1F1F1F;
+      --eid-rule:  #DCD5C4;
+      --eid-serif: "Source Serif 4", Georgia, serif;
+      --eid-sans:  "IBM Plex Sans", system-ui, sans-serif;
+      --eid-mono:  "IBM Plex Mono", ui-monospace, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--eid-sans);
+      background: #e8e4dc;
+      color: var(--eid-n-800);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 24px;
+      gap: 0;
+    }
+
+    /* ── PREVIEW LABEL ── */
+    .preview-label {
+      font-family: var(--eid-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--eid-paper-700);
+      margin-bottom: 24px;
+      opacity: 0.7;
+    }
+
+    /* ── FAKE SECTION ABOVE (Gap) ── */
+    .fake-above {
+      width: 100%;
+      max-width: 1140px;
+      background: var(--eid-paper-50);
+      border-radius: 4px 4px 0 0;
+      padding: 32px 64px;
+      border-bottom: 1px solid var(--eid-rule);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--eid-paper-700);
+      font-family: var(--eid-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+
+    /* ════════════════════════════════════════
+       OUR APPROACH SECTION
+    ════════════════════════════════════════ */
+    .approach-band {
+      width: 100%;
+      max-width: 1140px;
+      background: var(--eid-paper-50);
+      padding: 80px 64px 88px;
+      position: relative;
+    }
+
+    /* Section header */
+    .approach-head {
+      margin-bottom: 56px;
+    }
+
+    .eyebrow {
+      font-family: var(--eid-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--eid-ink-700);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    /* animated signal bars */
+    .ai-signal {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 12px;
+      color: var(--eid-amber-600);
+    }
+    .ai-signal i {
+      display: block;
+      width: 3px;
+      border-radius: 1px;
+      background: currentColor;
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+    .ai-signal i:nth-child(1) { height: 4px;  animation-delay: 0s; }
+    .ai-signal i:nth-child(2) { height: 7px;  animation-delay: 0.15s; }
+    .ai-signal i:nth-child(3) { height: 11px; animation-delay: 0.30s; }
+    .ai-signal i:nth-child(4) { height: 8px;  animation-delay: 0.45s; }
+    .ai-signal i:nth-child(5) { height: 5px;  animation-delay: 0.60s; }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.35; }
+      50%       { opacity: 1; }
+    }
+
+    .approach-head h2 {
+      font-family: var(--eid-serif);
+      font-weight: 400;
+      font-size: clamp(28px, 3vw, 42px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--eid-ink-900);
+      max-width: 680px;
+    }
+    .approach-head h2 em {
+      font-style: italic;
+      color: var(--eid-ink-700);
+    }
+    .approach-head .sub {
+      margin-top: 14px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--eid-paper-700);
+      max-width: 560px;
+    }
+
+    /* ── FLOW LAYOUT ── */
+    .approach-flow {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: start;
+      gap: 0;
+      position: relative;
+    }
+
+    /* ── CONNECTOR ── */
+    .connector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 48px; /* aligns with card top area */
+      gap: 0;
+      min-width: 96px;
+    }
+
+    .connector-line {
+      width: 100%;
+      height: 1px;
+      background: var(--eid-ink-300);
+      position: relative;
+    }
+    .connector-line::after {
+      content: '▶';
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 8px;
+      color: var(--eid-ink-400);
+      line-height: 1;
+    }
+
+    /* ── MILESTONE DIAMOND NODE ── */
+    .milestone-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 38px;
+      min-width: 120px;
+    }
+
+    .milestone-line-left,
+    .milestone-line-right {
+      height: 1px;
+      width: 100%;
+      background: var(--eid-ink-300);
+      flex: 1;
+    }
+
+    .milestone-wrap {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      gap: 0;
+    }
+
+    .milestone-diamond {
+      width: 28px;
+      height: 28px;
+      background: var(--eid-amber-100);
+      border: 1.5px solid var(--eid-amber-600);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .milestone-label-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 12px;
+      gap: 2px;
+    }
+    .milestone-label {
+      font-family: var(--eid-sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--eid-amber-700);
+      white-space: nowrap;
+    }
+    .milestone-sub {
+      font-family: var(--eid-mono);
+      font-size: 9px;
+      color: var(--eid-paper-700);
+      white-space: nowrap;
+      opacity: 0.75;
+    }
+
+    /* ── STAGE CARDS ── */
+    .stage-card {
+      background: var(--eid-n-0);
+      border: 1px solid var(--eid-ink-200);
+      border-radius: 4px;
+      padding: 28px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: box-shadow 0.18s ease, transform 0.18s ease;
+      position: relative;
+      min-height: 260px;
+    }
+
+    .stage-card.clickable {
+      cursor: pointer;
+    }
+    .stage-card.clickable:hover {
+      box-shadow: 0 6px 24px rgba(0,46,95,0.10);
+      transform: translateY(-3px);
+    }
+
+    /* top accent line */
+    .stage-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 4px 4px 0 0;
+    }
+    .stage-card--optional::before { background: var(--eid-ink-400); }
+    .stage-card--core::before     { background: var(--eid-ink-800); }
+    .stage-card--support::before  { background: var(--eid-amber-600); }
+
+    .stage-num {
+      font-family: var(--eid-mono);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--eid-amber-600);
+      letter-spacing: 0.08em;
+    }
+
+    .stage-badge {
+      display: inline-block;
+      font-family: var(--eid-sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--eid-ink-100);
+      color: var(--eid-ink-700);
+      align-self: flex-start;
+    }
+    .stage-badge--muted {
+      background: var(--eid-paper-100);
+      color: var(--eid-paper-700);
+    }
+    .stage-badge--amber {
+      background: var(--eid-amber-100);
+      color: var(--eid-amber-700);
+    }
+
+    .stage-title {
+      font-family: var(--eid-serif);
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--eid-ink-900);
+      letter-spacing: -0.01em;
+    }
+
+    .stage-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--eid-paper-700);
+      flex: 1;
+    }
+
+    .stage-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--eid-sans);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--eid-ink-700);
+      letter-spacing: 0.04em;
+      margin-top: 4px;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .stage-cta:hover { color: var(--eid-amber-600); }
+    .stage-cta .arrow {
+      font-size: 14px;
+      transition: transform 0.15s;
+    }
+    .stage-cta:hover .arrow { transform: translateY(2px); }
+
+    /* ── FAKE SECTION BELOW (Framework) ── */
+    .fake-below {
+      width: 100%;
+      max-width: 1140px;
+      background: var(--eid-ink-900);
+      border-radius: 0 0 4px 4px;
+      padding: 32px 64px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--eid-ink-400);
+      font-family: var(--eid-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .approach-band { padding: 60px 32px 72px; }
+      .approach-flow {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto;
+        gap: 0;
+        align-items: center;
+      }
+
+      /* reorder to stack vertically */
+      .stage-1  { order: 1; }
+      .conn-1   { order: 2; }
+      .milestone-node { order: 3; }
+      .conn-2   { order: 4; }
+      .stage-2  { order: 5; }
+      .conn-3   { order: 6; }
+      .stage-3  { order: 7; }
+
+      .connector {
+        padding-top: 0;
+        padding: 0;
+        min-width: auto;
+        flex-direction: column;
+        align-items: center;
+      }
+      .connector-line {
+        width: 1px;
+        height: 36px;
+        background: var(--eid-ink-300);
+      }
+      .connector-line::after {
+        content: '▼';
+        right: auto;
+        top: auto;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .milestone-node {
+        padding-top: 0;
+        padding: 0;
+        flex-direction: column;
+        min-width: auto;
+      }
+      .milestone-wrap {
+        flex-direction: column;
+        align-items: center;
+        width: auto;
+      }
+      .milestone-line-left,
+      .milestone-line-right {
+        width: 1px;
+        height: 24px;
+        flex: none;
+      }
+      .milestone-label-wrap { margin-top: 8px; margin-bottom: 4px; }
+
+      .fake-above, .fake-below { padding: 24px 32px; }
+    }
+
+    @media (max-width: 600px) {
+      .approach-band { padding: 48px 24px 60px; }
+      .fake-above, .fake-below { padding: 20px 24px; border-radius: 0; }
+      .approach-band { border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <p class="preview-label">↑ &nbsp; Preview mockup — "Our Approach" section &nbsp; ↑</p>
+
+  <!-- Fake section above -->
+  <div class="fake-above">
+    ↑ &nbsp; #04 The Gap section (above)
+  </div>
+
+  <!-- ════════ OUR APPROACH ════════ -->
+  <section class="approach-band">
+
+    <!-- Header -->
+    <div class="approach-head">
+      <div class="eyebrow">
+        <span class="ai-signal"><i></i><i></i><i></i><i></i><i></i></span>
+        Our Approach
+      </div>
+      <h2>From first conversation<br>to full <em>execution</em> — one path.</h2>
+      <p class="sub">A structured journey from optional discovery through a focused expert engagement to execution in the field.</p>
+    </div>
+
+    <!-- Flow -->
+    <div class="approach-flow">
+
+      <!-- Stage 1 -->
+      <a class="stage-card stage-card--optional clickable stage-1" href="#workshop">
+        <span class="stage-num">01 ·</span>
+        <span class="stage-badge stage-badge--muted">Optional · Complimentary</span>
+        <span class="stage-title">Discovery Workshop</span>
+        <span class="stage-desc">A 2-hour session with your leadership team. We scan your operations, surface high-impact priorities, and leave you a one-page diagnostic snapshot — no obligation.</span>
+        <span class="stage-cta">
+          See workshop details <span class="arrow">↓</span>
+        </span>
+      </a>
+
+      <!-- Connector + Milestone node -->
+      <div class="milestone-node">
+        <div class="milestone-wrap">
+          <div class="milestone-line-left"></div>
+          <div class="milestone-diamond"></div>
+          <div class="milestone-line-right"></div>
+        </div>
+        <div class="milestone-label-wrap">
+          <span class="milestone-label">Scope Alignment</span>
+          <span class="milestone-sub">Defined challenge · agreed brief</span>
+        </div>
+      </div>
+
+      <!-- Stage 2 -->
+      <a class="stage-card stage-card--core clickable stage-2" href="#framework">
+        <span class="stage-num">02 ·</span>
+        <span class="stage-badge">Core Engagement</span>
+        <span class="stage-title">Ignition Module</span>
+        <span class="stage-desc">A domain expert runs five focused stages — diagnosis, recommendations, upskilling, AI artifact build, and execution-readiness handover. Fast. Rigorous. No generalists.</span>
+        <span class="stage-cta">
+          See how it runs <span class="arrow">↓</span>
+        </span>
+      </a>
+
+      <!-- Simple arrow connector -->
+      <div class="connector conn-3">
+        <div class="connector-line"></div>
+      </div>
+
+      <!-- Stage 3 -->
+      <div class="stage-card stage-card--support stage-3">
+        <span class="stage-num">03 ·</span>
+        <span class="stage-badge stage-badge--amber">Post-module</span>
+        <span class="stage-title">Execution Support</span>
+        <span class="stage-desc">Taking the tools and pilots from your Ignition Module to full deployment. Depending on scope, this means fractional expert support guiding your team through rollout — or hands-on deployment of custom AI agents and capabilities across your organisation, built around the workflows and priorities we identified together.</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Fake section below -->
+  <div class="fake-below">
+    ↓ &nbsp; #06 How an Ignition Runs section (below)
+  </div>
+
+</body>
+</html>
