@@ -1394,7 +1394,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
     /* ======= CLIENT IMPACT SHOVELER ======= */
     .ci-section {
-      background: var(--eid-ink-900);
+      background: var(--eid-paper-50);
       padding: 80px 0;
       overflow: hidden;
     }
@@ -1410,29 +1410,29 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
       font-size: 10px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
+      color: var(--eid-paper-700);
       margin-bottom: 10px;
     }
     .ci-heading {
       font-family: var(--eid-serif);
       font-size: clamp(24px, 2.6vw, 36px);
       font-weight: 400;
-      color: #fff;
+      color: var(--eid-ink-800);
       line-height: 1.15;
       max-width: 560px;
     }
     .ci-nav { display: flex; gap: 8px; padding-bottom: 4px; }
     .ci-btn {
       width: 38px; height: 38px;
-      border: 1px solid rgba(255,255,255,0.3);
+      border: 1px solid rgba(0,0,0,0.2);
       background: transparent;
       border-radius: 50%;
       cursor: pointer;
       display: flex; align-items: center; justify-content: center;
-      color: #fff;
+      color: var(--eid-ink-800);
       transition: background 0.15s, border-color 0.15s;
     }
-    .ci-btn:hover:not(:disabled) { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+    .ci-btn:hover:not(:disabled) { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.4); }
     .ci-btn:disabled { opacity: 0.2; cursor: default; }
 
     .ci-viewport {
@@ -1547,6 +1547,27 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
       line-height: 1.6;
       color: var(--eid-text-soft);
       margin: 0;
+    }
+
+    /* ---- Dot tracker ---- */
+    .ci-dots {
+      display: flex;
+      gap: 7px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .ci-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.2);
+      transition: background 0.25s, transform 0.25s;
+      flex-shrink: 0;
+    }
+    .ci-dot.is-active {
+      background: var(--eid-ink-800);
+      transform: scale(1.5);
     }
 
     /* ---- Per-card photo backgrounds ---- */
@@ -2833,6 +2854,7 @@ header.site-nav {
 
         </div>
       </div>
+      <div class="ci-dots" id="ci-dots"></div>
     </div>
   </section>
   <!-- END CLIENT IMPACT SHOVELER -->
@@ -3495,6 +3517,19 @@ header.site-nav {
   var N       = cards.length;
   var current = 0;
 
+  /* build dots */
+  var dotsEl = document.getElementById('ci-dots');
+  var dots = [];
+  if (dotsEl) {
+    cards.forEach(function (_, i) {
+      var d = document.createElement('span');
+      d.className = 'ci-dot' + (i === 0 ? ' is-active' : '');
+      d.addEventListener('click', function () { goTo(i); });
+      dotsEl.appendChild(d);
+      dots.push(d);
+    });
+  }
+
   function goTo(i) {
     if (i < 0) i = 0;
     if (i >= N) i = N - 1;
@@ -3506,6 +3541,9 @@ header.site-nav {
   function sync() {
     if (prev) prev.disabled = current === 0;
     if (next) next.disabled = current >= N - 1;
+    dots.forEach(function (d, i) {
+      d.classList.toggle('is-active', i === current);
+    });
   }
 
   function nearest() {
