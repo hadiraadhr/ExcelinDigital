@@ -1447,126 +1447,144 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
     .ci-track { display: flex; gap: 16px; padding-bottom: 4px; }
 
+    /* ---- Card shell ---- */
     .ci-card {
       flex: 0 0 340px;
       scroll-snap-align: start;
-      border-radius: 4px;
+      border-radius: 16px;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
       text-decoration: none;
       color: inherit;
       position: relative;
-      min-height: 440px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      height: 480px;
+      transition: transform 0.25s, box-shadow 0.25s;
+      display: block;
     }
     .ci-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 56px rgba(0,0,0,0.55);
     }
 
-    /* background image layer */
+    /* ---- Full-bleed photo background ---- */
     .ci-card-bg {
       position: absolute;
       inset: 0;
       background-size: cover;
       background-position: center;
-      transition: transform 0.4s ease;
+      transition: transform 0.5s ease;
     }
-    .ci-card:hover .ci-card-bg { transform: scale(1.04); }
+    .ci-card:hover .ci-card-bg { transform: scale(1.06); }
 
-    /* dark gradient overlay */
-    .ci-card-overlay {
+    /* subtle vignette so text boxes pop */
+    .ci-card-vignette {
       position: absolute;
       inset: 0;
       background: linear-gradient(
         180deg,
-        rgba(0,0,0,0.18) 0%,
-        rgba(0,0,0,0.55) 45%,
-        rgba(0,0,0,0.90) 100%
+        rgba(0,0,0,0.08) 0%,
+        rgba(0,0,0,0.04) 40%,
+        rgba(0,0,0,0.28) 100%
       );
+      pointer-events: none;
     }
 
-    /* content sits above overlay */
-    .ci-card-content {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      padding: 28px 28px 32px;
-    }
-
-    .ci-card-client {
+    /* ---- Top-left pill label ---- */
+    .ci-card-label {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      z-index: 2;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 999px;
+      padding: 7px 16px;
       font-family: var(--eid-mono);
       font-size: 10px;
-      letter-spacing: 0.18em;
+      font-weight: 600;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
+      color: var(--eid-ink-800);
       line-height: 1;
+      white-space: nowrap;
+    }
+
+    /* ---- Bottom info panel (rounded rect) ---- */
+    .ci-card-panel {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      right: 18px;
+      z-index: 2;
+      background: rgba(255,255,255,0.93);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 14px;
+      padding: 20px 22px 22px;
     }
 
     .ci-card-highlight {
-      margin-top: auto;
-      padding-top: 80px;
       font-family: var(--eid-serif);
-      font-size: clamp(20px, 1.8vw, 24px);
+      font-size: 17px;
       font-weight: 400;
-      line-height: 1.25;
-      color: #fff;
+      line-height: 1.3;
+      color: var(--eid-ink-800);
       letter-spacing: -0.01em;
+      margin: 0 0 10px;
     }
 
     .ci-card-divider {
-      width: 32px;
+      width: 28px;
       height: 2px;
       background: var(--eid-amber-500);
-      margin: 16px 0;
+      margin-bottom: 10px;
       flex-shrink: 0;
     }
 
     .ci-card-detail {
       font-family: var(--eid-sans);
-      font-size: 13px;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.72);
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: var(--eid-text-soft);
+      margin: 0;
     }
 
-    /* Per-card gradient backgrounds — brand-reflective */
+    /* ---- Per-card photo backgrounds ---- */
     .ci-card--alrajhi .ci-card-bg {
-      background-image: linear-gradient(135deg, #003d20 0%, #005f30 40%, #007a3d 70%, #00a651 100%);
+      background-image: url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&q=80&fit=crop');
     }
     .ci-card--shuaa .ci-card-bg {
-      background-image: linear-gradient(135deg, #0a1628 0%, #0f2545 40%, #173566 70%, #1d4280 100%);
+      background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80&fit=crop');
     }
     .ci-card--omniyat .ci-card-bg {
-      background-image: linear-gradient(135deg, #1a0a00 0%, #2d1200 40%, #4a2000 70%, #6b3010 100%);
+      background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80&fit=crop');
     }
     .ci-card--partners .ci-card-bg {
-      background-image: linear-gradient(135deg, #0d1117 0%, #161b27 40%, #1f2d40 70%, #0a1628 100%);
+      background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80&fit=crop');
     }
     .ci-card--stc .ci-card-bg {
-      background-image: linear-gradient(135deg, #2a0040 0%, #420060 40%, #5e008a 70%, #7c00b8 100%);
+      background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&fit=crop');
     }
     .ci-card--ooredoo .ci-card-bg {
-      background-image: linear-gradient(135deg, #5c0000 0%, #8b0000 40%, #b00020 70%, #cc0033 100%);
+      background-image: url('https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80&fit=crop');
     }
 
-    /* Subtle texture overlays per card for visual depth */
-    .ci-card--alrajhi .ci-card-overlay {
-      background: linear-gradient(160deg, rgba(0,60,30,0.1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.92) 100%);
-    }
-    .ci-card--shuaa .ci-card-overlay {
-      background: linear-gradient(160deg, rgba(10,30,60,0.15) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.92) 100%);
-    }
+    /* fallback colour if image fails to load */
+    .ci-card--alrajhi .ci-card-bg { background-color: #004d28; }
+    .ci-card--shuaa    .ci-card-bg { background-color: #0f2545; }
+    .ci-card--omniyat  .ci-card-bg { background-color: #3a1a06; }
+    .ci-card--partners .ci-card-bg { background-color: #161b27; }
+    .ci-card--stc      .ci-card-bg { background-color: #3d0060; }
+    .ci-card--ooredoo  .ci-card-bg { background-color: #8b0000; }
 
     @media (max-width: 960px) {
       .ci-nav { display: none; }
-      .ci-card { flex: 0 0 280px; min-height: 380px; }
+      .ci-card { flex: 0 0 290px; height: 420px; }
     }
     @media (max-width: 600px) {
-      .ci-card { flex: 0 0 260px; }
+      .ci-card { flex: 0 0 268px; height: 390px; }
       .ci-section { padding: 56px 0; }
+      .ci-card-highlight { font-size: 15px; }
     }
 
   </style>
@@ -2744,72 +2762,72 @@ header.site-nav {
           <!-- Card 1: AlRajhi Bank -->
           <div class="ci-card ci-card--alrajhi">
             <div class="ci-card-bg"></div>
-            <div class="ci-card-overlay"></div>
-            <div class="ci-card-content">
-              <div class="ci-card-client">Al Rajhi Bank</div>
-              <div class="ci-card-highlight">Marketplace go-to-market strategy with AI-driven personalization</div>
+            <div class="ci-card-vignette"></div>
+            <div class="ci-card-label">Al Rajhi Bank</div>
+            <div class="ci-card-panel">
+              <p class="ci-card-highlight">Marketplace go-to-market strategy with AI-driven personalization</p>
               <div class="ci-card-divider"></div>
-              <div class="ci-card-detail">Designed the marketplace go-to-market strategy and optimized digital experience, embedding AI-driven personalization to drive customer acquisition and conversion.</div>
+              <p class="ci-card-detail">Designed the marketplace go-to-market strategy and optimized digital experience, embedding AI-driven personalization to drive customer acquisition and conversion.</p>
             </div>
           </div>
 
           <!-- Card 2: Shuaa Capital -->
           <div class="ci-card ci-card--shuaa">
             <div class="ci-card-bg"></div>
-            <div class="ci-card-overlay"></div>
-            <div class="ci-card-content">
-              <div class="ci-card-client">Shuaa Capital</div>
-              <div class="ci-card-highlight">AI-powered robo-advisory engine for digital wealth management</div>
+            <div class="ci-card-vignette"></div>
+            <div class="ci-card-label">Shuaa Capital</div>
+            <div class="ci-card-panel">
+              <p class="ci-card-highlight">AI-powered robo-advisory engine for digital wealth management</p>
               <div class="ci-card-divider"></div>
-              <div class="ci-card-detail">Built a digital wealth management proposition with an AI-powered robo-advisory engine for scalable, personalized client onboarding.</div>
+              <p class="ci-card-detail">Built a digital wealth management proposition with an AI-powered robo-advisory engine for scalable, personalized client onboarding.</p>
             </div>
           </div>
 
           <!-- Card 3: Omniyat -->
           <div class="ci-card ci-card--omniyat">
             <div class="ci-card-bg"></div>
-            <div class="ci-card-overlay"></div>
-            <div class="ci-card-content">
-              <div class="ci-card-client">Omniyat</div>
-              <div class="ci-card-highlight">Buy Now Pay Later models with AI-driven credit risk scoring</div>
+            <div class="ci-card-vignette"></div>
+            <div class="ci-card-label">Omniyat</div>
+            <div class="ci-card-panel">
+              <p class="ci-card-highlight">Buy Now Pay Later models with AI-driven credit risk scoring</p>
               <div class="ci-card-divider"></div>
-              <div class="ci-card-detail">Designed Buy Now Pay Later financing models with AI-driven credit risk scoring to unlock new revenue and broaden customer affordability.</div>
+              <p class="ci-card-detail">Designed Buy Now Pay Later financing models with AI-driven credit risk scoring to unlock new revenue and broaden customer affordability.</p>
             </div>
           </div>
 
           <!-- Card 4: Trusted Partners -->
           <div class="ci-card ci-card--partners">
             <div class="ci-card-bg"></div>
-            <div class="ci-card-overlay"></div>
-            <div class="ci-card-content">
-              <div class="ci-card-client">Trusted Partners</div>
-              <div class="ci-card-highlight">Corporate strategy covering cybersecurity, AI risk &amp; capability building</div>
+            <div class="ci-card-vignette"></div>
+            <div class="ci-card-label">Trusted Partners</div>
+            <div class="ci-card-panel">
+              <p class="ci-card-highlight">Corporate strategy covering cybersecurity, AI risk &amp; capability building</p>
               <div class="ci-card-divider"></div>
-              <div class="ci-card-detail">Ran a corporate strategy workshop covering cybersecurity resilience, AI risk readiness, and internal capability building.</div>
+              <p class="ci-card-detail">Ran a corporate strategy workshop covering cybersecurity resilience, AI risk readiness, and internal capability building.</p>
             </div>
           </div>
 
           <!-- Card 5: Saudi Telecom -->
           <div class="ci-card ci-card--stc">
             <div class="ci-card-bg"></div>
-            <div class="ci-card-overlay"></div>
-            <div class="ci-card-content">
-              <div class="ci-card-client">Saudi Telecom</div>
-              <div class="ci-card-highlight">Digital transformation across home and enterprise business lines</div>
+            <div class="ci-card-vignette"></div>
+            <div class="ci-card-label">Saudi Telecom</div>
+            <div class="ci-card-panel">
+              <p class="ci-card-highlight">Digital transformation across home and enterprise business lines</p>
               <div class="ci-card-divider"></div>
-              <div class="ci-card-detail">Led digital transformation across home and enterprise business lines, driving growth and operational efficiency.</div>
+              <p class="ci-card-detail">Led digital transformation across home and enterprise business lines, driving growth and operational efficiency.</p>
             </div>
           </div>
 
           <!-- Card 6: Ooredoo -->
           <div class="ci-card ci-card--ooredoo">
             <div class="ci-card-bg"></div>
-            <div class="ci-card-overlay"></div>
-            <div class="ci-card-content">
-              <div class="ci-card-client">Ooredoo</div>
-              <div class="ci-card-highlight">Digital media house for content curation and ad targeting</div>
+            <div class="ci-card-vignette"></div>
+            <div class="ci-card-label">Ooredoo</div>
+            <div class="ci-card-panel">
+              <p class="ci-card-highlight">Digital media house for content curation and ad targeting</p>
               <div class="ci-card-divider"></div>
-              <div class="ci-card-detail">Designed a digital media house offering content curation and ad targeting to expand revenue streams.</div>
+              <p class="ci-card-detail">Designed a digital media house offering content curation and ad targeting to expand revenue streams.</p>
             </div>
           </div>
 
