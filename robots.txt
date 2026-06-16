@@ -15,3 +15,6 @@ Allow: /
 
 User-agent: GeminiBot
 Allow: /
+
+User-agent: *
+Allow: /
