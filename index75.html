@@ -1559,44 +1559,46 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
       overflow: hidden;
     }
 
-    /* ---- Expand hint (dots + chevron) ---- */
+    /* ---- Detail wrapper: positions the arrow at the end of line 4 ---- */
+    .ci-detail-wrap {
+      position: relative;
+      cursor: pointer;
+    }
+
+    /* ---- Chevron sits inline at bottom-right of the clamped text ---- */
     .ci-expand-hint {
+      position: absolute;
+      bottom: 0;
+      right: 0;
       display: flex;
       align-items: center;
-      gap: 6px;
-      margin-top: 8px;
-      cursor: pointer;
-      user-select: none;
-    }
-    .ci-expand-dots {
-      font-size: 13px;
-      color: var(--eid-text-soft);
-      letter-spacing: 0.05em;
-      opacity: 0.7;
+      /* fade out the text behind the arrow */
+      background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.93) 28%);
+      padding-left: 20px;
     }
     .ci-expand-arrow {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
-      background: rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, background 0.2s;
+      background: rgba(0,0,0,0.09);
+      transition: background 0.2s;
       flex-shrink: 0;
     }
     .ci-expand-arrow svg {
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       stroke: var(--eid-ink-800);
       fill: none;
-      stroke-width: 2;
+      stroke-width: 2.2;
       stroke-linecap: round;
       stroke-linejoin: round;
       transition: transform 0.3s ease;
     }
-    .ci-expand-hint:hover .ci-expand-arrow {
-      background: rgba(0,0,0,0.14);
+    .ci-detail-wrap:hover .ci-expand-arrow {
+      background: rgba(0,0,0,0.16);
     }
 
     /* ---- Expanded state ---- */
@@ -1605,8 +1607,14 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
       -webkit-line-clamp: unset;
       overflow: visible;
     }
-    .ci-card.is-expanded .ci-expand-dots {
-      display: none;
+    /* In expanded state move arrow to bottom-right of the full text */
+    .ci-card.is-expanded .ci-expand-hint {
+      background: none;
+      padding-left: 0;
+      position: static;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 6px;
     }
     .ci-card.is-expanded .ci-expand-arrow svg {
       transform: rotate(180deg);
@@ -2866,8 +2874,7 @@ header.site-nav {
             <div class="ci-card-panel">
               <p class="ci-card-highlight">Reinventing Shopping Journey</p>
               <div class="ci-card-divider"></div>
-              <p class="ci-card-detail">For one of the world’s largest e-commerce marketplaces, led an end-to-end redesign of onboarding, discovery, evaluation, and purchase experiences — doubling conversion and increasing annual revenue by 15%+ </p>
-              <div class="ci-expand-hint"><span class="ci-expand-dots">···</span><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div>
+              <div class="ci-detail-wrap"><p class="ci-card-detail">For one of the world’s largest e-commerce marketplaces, led an end-to-end redesign of onboarding, discovery, evaluation, and purchase experiences — doubling conversion and increasing annual revenue by 15%+ </p><div class="ci-expand-hint"><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div></div>
             </div>
           </div>
 
@@ -2879,8 +2886,7 @@ header.site-nav {
             <div class="ci-card-panel">
               <p class="ci-card-highlight">Turning Cash Habits Digital</p>
               <div class="ci-card-divider"></div>
-              <p class="ci-card-detail">For a leading global payments network, designed habit-forming mobile and contactless payment experiences and stood up an ecosystem of 40+ banks and regulators across 12+ markets — growing digital's share of everyday spend from under 5% to 45%+, and contactless adoption from below 1% to over 80%.</p>
-              <div class="ci-expand-hint"><span class="ci-expand-dots">···</span><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div>
+              <div class="ci-detail-wrap"><p class="ci-card-detail">For a leading global payments network, designed habit-forming mobile and contactless payment experiences and stood up an ecosystem of 40+ banks and regulators across 12+ markets — growing digital's share of everyday spend from under 5% to 45%+, and contactless adoption from below 1% to over 80%.</p><div class="ci-expand-hint"><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div></div>
             </div>
           </div>
 
@@ -2892,8 +2898,7 @@ header.site-nav {
             <div class="ci-card-panel">
               <p class="ci-card-highlight">Frictionless authentication </p>
               <div class="ci-card-divider"></div>
-              <p class="ci-card-detail">For a global e-commerce leader, led a global-first passwordless passkeys framework with smart payment recommendations and risk-based step-up — lifting authentication success 900 bps, enabling frictionless 1-click checkout, and raising new-customer acquisition 6% annually.</p>
-              <div class="ci-expand-hint"><span class="ci-expand-dots">···</span><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div>
+              <div class="ci-detail-wrap"><p class="ci-card-detail">For a global e-commerce leader, led a global-first passwordless passkeys framework with smart payment recommendations and risk-based step-up — lifting authentication success 900 bps, enabling frictionless 1-click checkout, and raising new-customer acquisition 6% annually.</p><div class="ci-expand-hint"><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div></div>
             </div>
           </div>
 
@@ -2905,8 +2910,7 @@ header.site-nav {
             <div class="ci-card-panel">
               <p class="ci-card-highlight">Scaling Seamless Checkout</p>
               <div class="ci-card-divider"></div>
-              <p class="ci-card-detail">For a major global payments network, designed and launched seamless click-to-pay experiences embedded directly in the merchant checkout journey, generating $17 billion in annual payment volume across the region's e-commerce ecosystem.</p>
-              <div class="ci-expand-hint"><span class="ci-expand-dots">···</span><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div>
+              <div class="ci-detail-wrap"><p class="ci-card-detail">For a major global payments network, designed and launched seamless click-to-pay experiences embedded directly in the merchant checkout journey, generating $17 billion in annual payment volume across the region's e-commerce ecosystem.</p><div class="ci-expand-hint"><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div></div>
             </div>
           </div>
 
@@ -2918,8 +2922,7 @@ header.site-nav {
             <div class="ci-card-panel">
               <p class="ci-card-highlight">AI That Moves Conversion</p>
               <div class="ci-card-divider"></div>
-              <p class="ci-card-detail">For a leading global marketplace, deployed AI across the customer journey — discovery ranking, branching, evaluation summaries, predictive social proof, and adaptive onboarding — lifting click-through and add-to-cart rates 5–15% while making each step smarter and more personal.</p>
-              <div class="ci-expand-hint"><span class="ci-expand-dots">···</span><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div>
+              <div class="ci-detail-wrap"><p class="ci-card-detail">For a leading global marketplace, deployed AI across the customer journey — discovery ranking, branching, evaluation summaries, predictive social proof, and adaptive onboarding — lifting click-through and add-to-cart rates 5–15% while making each step smarter and more personal.</p><div class="ci-expand-hint"><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div></div>
             </div>
           </div>
 
@@ -2931,8 +2934,7 @@ header.site-nav {
             <div class="ci-card-panel">
               <p class="ci-card-highlight">A World-First Cultural Experience Hub</p>
               <div class="ci-card-divider"></div>
-              <p class="ci-card-detail">For one of world's largest technology platforms, launched a world-first cultural experience hub converging live sourced video feeds, maps, and social content. Exceeded Daily Active User and watch-time target metrics. Generated billions of incremental views. Earned international broadcast coverage.</p>
-              <div class="ci-expand-hint"><span class="ci-expand-dots">···</span><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div>
+              <div class="ci-detail-wrap"><p class="ci-card-detail">For one of world's largest technology platforms, launched a world-first cultural experience hub converging live sourced video feeds, maps, and social content. Exceeded Daily Active User and watch-time target metrics. Generated billions of incremental views. Earned international broadcast coverage.</p><div class="ci-expand-hint"><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div></div>
             </div>
           </div>
 
@@ -2944,8 +2946,7 @@ header.site-nav {
             <div class="ci-card-panel">
               <p class="ci-card-highlight">A Full Turnaround</p>
               <div class="ci-card-divider"></div>
-              <p class="ci-card-detail">Engineered a complete business turnaround for a National Telecom Leader — launching new digital entertainment and triple-play packages that reversed a −7% revenue decline into +3% growth.</p>
-              <div class="ci-expand-hint"><span class="ci-expand-dots">···</span><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div>
+              <div class="ci-detail-wrap"><p class="ci-card-detail">Engineered a complete business turnaround for a National Telecom Leader — launching new digital entertainment and triple-play packages that reversed a −7% revenue decline into +3% growth.</p><div class="ci-expand-hint"><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div></div>
             </div>
           </div>
 
@@ -2957,8 +2958,7 @@ header.site-nav {
             <div class="ci-card-panel">
               <p class="ci-card-highlight">Marketplace Strategy &amp; Product Roadmap</p>
               <div class="ci-card-divider"></div>
-              <p class="ci-card-detail">Worked with one of the largest financial institutions in the GCC. Designed marketplace go-to-market approach, value proposition synergies, & features roadmap. Optimized digital experience, and defined AI capabilities to drive customer acquisition and conversion.</p>
-              <div class="ci-expand-hint"><span class="ci-expand-dots">···</span><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div>
+              <div class="ci-detail-wrap"><p class="ci-card-detail">Worked with one of the largest financial institutions in the GCC. Designed marketplace go-to-market approach, value proposition synergies, & features roadmap. Optimized digital experience, and defined AI capabilities to drive customer acquisition and conversion.</p><div class="ci-expand-hint"><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div></div>
             </div>
           </div>
 
@@ -2970,8 +2970,7 @@ header.site-nav {
             <div class="ci-card-panel">
               <p class="ci-card-highlight">AI-Powered Robo-Advisory for Digital Wealth</p>
               <div class="ci-card-divider"></div>
-              <p class="ci-card-detail">Built a digital wealth management platform with  AI-powered robo-advisory engine for a regional capital markets firm, enabling scalable, personalized client onboarding.</p>
-              <div class="ci-expand-hint"><span class="ci-expand-dots">···</span><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div>
+              <div class="ci-detail-wrap"><p class="ci-card-detail">Built a digital wealth management platform with  AI-powered robo-advisory engine for a regional capital markets firm, enabling scalable, personalized client onboarding.</p><div class="ci-expand-hint"><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div></div>
             </div>
           </div>
 
@@ -2983,8 +2982,7 @@ header.site-nav {
             <div class="ci-card-panel">
               <p class="ci-card-highlight">BNPL Financing with AI Credit Risk Scoring</p>
               <div class="ci-card-divider"></div>
-              <p class="ci-card-detail">Designed Buy Now Pay Later financing models with credit risk scoring for a luxury real estate developer, unlocking new revenue and broadening customer affordability.</p>
-              <div class="ci-expand-hint"><span class="ci-expand-dots">···</span><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div>
+              <div class="ci-detail-wrap"><p class="ci-card-detail">Designed Buy Now Pay Later financing models with credit risk scoring for a luxury real estate developer, unlocking new revenue and broadening customer affordability.</p><div class="ci-expand-hint"><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div></div>
             </div>
           </div>
 
@@ -2996,8 +2994,7 @@ header.site-nav {
             <div class="ci-card-panel">
               <p class="ci-card-highlight">Corporate Strategy: Cybersecurity, AI Risk &amp; Capability Building</p>
               <div class="ci-card-divider"></div>
-              <p class="ci-card-detail">Ran a corporate strategy workshop for a regional conglomerate covering cybersecurity resilience, AI risk readiness, and internal capability building.</p>
-              <div class="ci-expand-hint"><span class="ci-expand-dots">···</span><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div>
+              <div class="ci-detail-wrap"><p class="ci-card-detail">Ran a corporate strategy workshop for a regional conglomerate covering cybersecurity resilience, AI risk readiness, and internal capability building.</p><div class="ci-expand-hint"><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div></div>
             </div>
           </div>
 
@@ -3009,8 +3006,7 @@ header.site-nav {
             <div class="ci-card-panel">
               <p class="ci-card-highlight">Digital Media House for Content &amp; Ad Targeting</p>
               <div class="ci-card-divider"></div>
-              <p class="ci-card-detail">Designed a digital media house offering content curation and ad targeting for a leading MENA telecoms operator to expand revenue streams beyond connectivity.</p>
-              <div class="ci-expand-hint"><span class="ci-expand-dots">···</span><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div>
+              <div class="ci-detail-wrap"><p class="ci-card-detail">Designed a digital media house offering content curation and ad targeting for a leading MENA telecoms operator to expand revenue streams beyond connectivity.</p><div class="ci-expand-hint"><span class="ci-expand-arrow"><svg viewBox="0 0 10 6"><polyline points="1,1 5,5 9,1"/></svg></span></div></div>
             </div>
           </div>
 
