@@ -1527,6 +1527,11 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
       -webkit-backdrop-filter: blur(14px);
       border-radius: 14px;
       padding: 20px 22px 22px;
+      height: 190px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: height 0.3s ease;
     }
 
     .ci-card-highlight {
@@ -1537,6 +1542,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
       color: var(--eid-ink-800);
       letter-spacing: -0.01em;
       margin: 0 0 10px;
+      flex-shrink: 0;
     }
 
     .ci-card-divider {
@@ -1553,16 +1559,16 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
       line-height: 1.6;
       color: var(--eid-text-soft);
       margin: 0;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
       overflow: hidden;
     }
 
-    /* ---- Detail wrapper: positions the arrow at the end of line 4 ---- */
+    /* ---- Detail wrapper: fills remaining panel height, clips overflow ---- */
     .ci-detail-wrap {
       position: relative;
       cursor: pointer;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
     }
 
     /* ---- Chevron sits inline at bottom-right of the clamped text ---- */
@@ -1602,12 +1608,16 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
     }
 
     /* ---- Expanded state ---- */
-    .ci-card.is-expanded .ci-card-detail {
-      display: block;
-      -webkit-line-clamp: unset;
+    .ci-card.is-expanded .ci-card-panel {
+      height: auto;
+    }
+    .ci-card.is-expanded .ci-detail-wrap {
       overflow: visible;
     }
-    /* In expanded state move arrow to bottom-right of the full text */
+    .ci-card.is-expanded .ci-card-detail {
+      overflow: visible;
+    }
+    /* In expanded state move arrow below the full text */
     .ci-card.is-expanded .ci-expand-hint {
       background: none;
       padding-left: 0;
@@ -1621,9 +1631,6 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
     }
     .ci-card.is-expanded {
       transform: none !important;
-    }
-    .ci-card-panel {
-      transition: none;
     }
 
     /* ---- Dot tracker ---- */
