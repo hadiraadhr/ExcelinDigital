@@ -1865,22 +1865,23 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
     /* clients marquee */
     .clients-shoveler {
       overflow: hidden; position: relative; width: 100%; cursor: grab;
+      background: #ffffff; border-radius: 6px;
     }
     .clients-shoveler.is-dragging { cursor: grabbing; }
     .clients-shoveler::before, .clients-shoveler::after {
-      content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; pointer-events: none;
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
     }
-    .clients-shoveler::before { left: 0; background: linear-gradient(to right, var(--eid-ink-800, #13131f) 0%, transparent 100%); }
-    .clients-shoveler::after  { right: 0; background: linear-gradient(to left,  var(--eid-ink-800, #13131f) 0%, transparent 100%); }
+    .clients-shoveler::before { left: 0; background: linear-gradient(to right, #ffffff 0%, transparent 100%); }
+    .clients-shoveler::after  { right: 0; background: linear-gradient(to left,  #ffffff 0%, transparent 100%); }
     .clients-belt {
       display: flex; flex-direction: row; gap: 56px; align-items: center;
-      padding: 20px 0; width: max-content;
+      padding: 18px 24px; width: max-content;
       animation: clients-scroll 34s linear infinite;
     }
     .clients-belt.is-paused { animation-play-state: paused; }
     .clients-belt .client-item {
-      font-family: var(--eid-serif); font-size: 22px;
-      color: rgba(255,255,255,0.75); letter-spacing: -0.01em;
+      font-family: var(--eid-serif); font-size: 20px;
+      color: rgba(30,30,40,0.65); letter-spacing: -0.01em;
       white-space: nowrap; flex-shrink: 0;
       display: flex; align-items: center; height: 40px;
       opacity: 0.8; transition: opacity 0.2s;
@@ -1888,7 +1889,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
     .clients-belt .client-item:hover { opacity: 1; }
     .clients-belt .client-item .client-logo {
       height: 34px; width: auto; max-width: 120px; display: block;
-      object-fit: contain; filter: brightness(0) invert(1); opacity: 0.75;
+      object-fit: contain; opacity: 0.75;
       transition: opacity 0.2s;
     }
     .clients-belt .client-item:hover .client-logo { opacity: 1; }
@@ -3041,11 +3042,11 @@ header.site-nav {
       <div class="clients-belt">
         <span class="client-item">Saudi Telecom</span>
         <span class="client-item">Al Rajhi Bank</span>
-        <span class="client-item"><img src="logos/ooredoo.png" alt="Ooredoo" class="client-logo"></span>
+        <span class="client-item"><img src="ClientsLogos/ooredoo.png" alt="Ooredoo" class="client-logo"></span>
         <span class="client-item">Omniyat Real Estate</span>
         <span class="client-item">e&amp;</span>
         <span class="client-item">Du</span>
-        <span class="client-item"><img src="logos/shuaa.png" alt="Shuaa Capital" class="client-logo"></span>
+        <span class="client-item"><img src="ClientsLogos/shuaa.png" alt="Shuaa Capital" class="client-logo"></span>
         <span class="client-item">MTN</span>
         <span class="client-item">ICTQatar</span>
         <span class="client-item">Batelco</span>
@@ -3054,11 +3055,11 @@ header.site-nav {
         <span class="client-item">KACST</span>
         <span class="client-item">Saudi Telecom</span>
         <span class="client-item">Al Rajhi Bank</span>
-        <span class="client-item"><img src="logos/ooredoo.png" alt="Ooredoo" class="client-logo"></span>
+        <span class="client-item"><img src="ClientsLogos/ooredoo.png" alt="Ooredoo" class="client-logo"></span>
         <span class="client-item">Omniyat Real Estate</span>
         <span class="client-item">e&amp;</span>
         <span class="client-item">Du</span>
-        <span class="client-item"><img src="logos/shuaa.png" alt="Shuaa Capital" class="client-logo"></span>
+        <span class="client-item"><img src="ClientsLogos/shuaa.png" alt="Shuaa Capital" class="client-logo"></span>
         <span class="client-item">MTN</span>
         <span class="client-item">ICTQatar</span>
         <span class="client-item">Batelco</span>
