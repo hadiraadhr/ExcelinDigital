@@ -1261,7 +1261,9 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
     .tsh-btn:disabled { opacity: 0.25; cursor: default; }
     .tsh-viewport {
       overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
       scroll-snap-type: x mandatory;
+      scroll-padding-left: 0;
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
@@ -3665,6 +3667,10 @@ header.site-nav {
     offscreen = !e[0].isIntersecting;
     offscreen ? stopTimer() : startTimer();
   }, {threshold: 0.1}).observe(vp);
+
+  /* iOS Safari can restore a non-zero scroll position on load;
+     force back to card 1 before the first paint settles. */
+  vp.scrollLeft = 0;
 
   sync();
   startTimer();
