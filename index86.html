@@ -1338,6 +1338,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
     .tsh-index {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      align-items: stretch;
       margin-bottom: 20px;
       border: 1px solid var(--eid-rule-strong);
       border-radius: 4px;
@@ -1355,11 +1356,12 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
       cursor: pointer;
       text-align: left;
       transition: background 0.2s, color 0.2s;
+      height: 100%;
     }
     /* Remove right border on last item in each row (every 3rd) */
     .tsh-index-item:nth-child(3n) { border-right: none; }
-    /* Separator between row 1 and row 2 on desktop */
-    .tsh-index-item:nth-child(-n+3) { border-bottom: 1px solid var(--eid-rule-strong); }
+    /* Separator between row 1 and row 2 on desktop — light grey, same as column dividers */
+    .tsh-index-item:nth-child(-n+3) { border-bottom: 1px solid var(--eid-rule); }
     .tsh-index-item:hover:not(.active) { background: var(--eid-ink-100); }
     .tsh-index-num {
       font-family: var(--eid-mono);
@@ -1413,7 +1415,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
       /* Row 1: items 1,2 — no extra border */
       /* Row 2: items 3,4 — separator below */
       .tsh-index-item:nth-child(3),
-      .tsh-index-item:nth-child(4) { border-bottom: 1px solid var(--eid-rule-strong); }
+      .tsh-index-item:nth-child(4) { border-bottom: 1px solid var(--eid-rule); }
       /* Remove right border for every 2nd item (last in each row) */
       .tsh-index-item:nth-child(2n) { border-right: none; }
     }
@@ -3172,7 +3174,7 @@ header.site-nav {
             <div class="tsh-card-title">Smart Workplace &amp; Connected Spaces</div>
             <div class="tsh-card-arrow">&#x2197;</div>
           </div>
-          <div class="tsh-card-desc">Productivity tools have gone digital, but the physical workplace is still a dozen disconnected apps and switches. We make the space itself intelligent — connecting lighting, sound, climate, access, and security to an LLM-driven control layer that responds to plain-language command instead of a panel for every system. Rooms that set themselves for the meeting on the calendar, security that escalates by reasoning, environments that adapt to who's present. We map your space and train agents on your devices, occupancy signals, and operating logic. You walk away with a production-ready environment agent — orchestrating your space through natural language — handed over with knowledge transfer so your workplace runs itself and your team simply works.</div>
+          <div class="tsh-card-desc">Productivity tools have gone digital, but the physical workplace is still a dozen disconnected apps and switches. We make the space itself intelligent — connecting lighting, sound, climate, access, and security to an LLM-driven layer that responds to plain-language command instead of a panel for every system. Rooms that set themselves for the meeting on the calendar, security that escalates by reasoning, environments that adapt to who's present. You walk away with a production-ready environment agent — orchestrating your space through natural language, handed over with knowledge transfer so your workplace runs itself.</div>
         </a>
       </div>
     </div>
