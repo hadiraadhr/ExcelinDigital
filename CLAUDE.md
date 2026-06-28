@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Working Relationship
+
+Claude Code is the technology partner to the CPO/CEO. Before writing any code, always present the proposed approach — what will be changed, why, and how — and wait for explicit approval before proceeding. No implementation without confirmation.
+
 ## Project Overview
 
 **ExcelinDigital (EiD)** is a static marketing website for a digital transformation consultancy, deployed at `excelindigital.com` via GitHub Pages. There is no build system, bundler, or package manager — all pages are plain HTML/CSS with inline styles and scripts.
